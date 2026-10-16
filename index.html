@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aura AI | Enterprise AI Workflow & Systems Architecture</title>
   <meta name="description" content="Aura AI engineers deterministic multi-LLM pipelines, autonomous intake triage, and backend CRM automation for mid-market Logistics, Legal, and Commercial Operations." />
+  
+  <!-- Official Entity JSON-LD Schema (Brand Defense vs .com copycats) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Aura AI Systems Architecture",
+    "url": "https://aura-ai.agency",
+    "founder": {
+      "@type": "Person",
+      "name": "Wes Isaac"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Orange Park",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "description": "Enterprise multi-LLM workflow orchestration, deterministic intake triage, and backend CRM automation for mid-market Logistics, Legal, and Commercial Operations.",
+    "email": "wes@aura-ai.agency"
+  }
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +93,7 @@
         <a href="#simulator" class="hover:text-emerald-400 transition">Live ROI & Telemetry</a>
         <a href="#engagement" class="hover:text-emerald-400 transition">Engagement Model</a>
       </nav>
-      <a href="mailto:wes@aura-ai.agency?subject=Aura%20AI%203-Point%20Architectural%20Brief%20Request" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-sm transition shadow-lg shadow-emerald-500/20">
+      <a href="mailto:wes@aura-ai.agency?subject=Aura%20AI%203-Point%20Architectural%20Brief%20Request" onclick="copyEmail(event)" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-sm transition shadow-lg shadow-emerald-500/20">
         Request Architecture Brief
       </a>
     </div>
@@ -92,7 +115,7 @@
         <a href="#simulator" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-base transition shadow-xl shadow-emerald-500/20">
           Test Live Architecture & ROI Simulator →
         </a>
-        <a href="mailto:wes@aura-ai.agency?subject=Operational%20Workflow%20Diagnostic%20Inquiry" class="w-full sm:w-auto px-7 py-4 rounded-xl border border-slate-700 bg-slate-900/70 hover:border-slate-500 text-white font-semibold text-base transition">
+        <a href="mailto:wes@aura-ai.agency?subject=Operational%20Workflow%20Diagnostic%20Inquiry" onclick="copyEmail(event)" class="w-full sm:w-auto px-7 py-4 rounded-xl border border-slate-700 bg-slate-900/70 hover:border-slate-500 text-white font-semibold text-base transition">
           Direct Architect Access: wes@aura-ai.agency
         </a>
       </div>
@@ -338,7 +361,7 @@
         Send over a redacted sample of the carrier packet, intake form, or CRM workflow your team is manually keying in every day. Principal Architect <strong>Wes Isaac</strong> will reply with a custom 3-point plain-text architectural brief showing how we automate 80% of the flow.
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="mailto:wes@aura-ai.agency?subject=3-Point%20Architectural%20Brief%20Request&body=Hey%20Wes%2C%0A%0AWe%27d%20like%20to%20see%20a%203-point%20plain-text%20architectural%20brief%20for%20automating%20our%20workflow.%20Here%20is%20our%20current%20bottleneck%3A%0A%0A" class="px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-base transition shadow-lg shadow-emerald-500/25">
+        <a href="mailto:wes@aura-ai.agency?subject=3-Point%20Architectural%20Brief%20Request&body=Hey%20Wes%2C%0A%0AWe%27d%20like%20to%20see%20a%203-point%20plain-text%20architectural%20brief%20for%20automating%20our%20workflow.%20Here%20is%20our%20current%20bottleneck%3A%0A%0A" onclick="copyEmail(event)" class="px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-base transition shadow-lg shadow-emerald-500/25">
           Email Wes Directly: wes@aura-ai.agency
         </a>
       </div>
@@ -348,8 +371,20 @@
     </div>
   </section>
 
-  <!-- Interactive Simulator Script -->
+  <!-- Interactive Simulator & Utility Script -->
   <script>
+    // Copy-to-Clipboard Email Fallback Function
+    function copyEmail(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText('wes@aura-ai.agency').then(() => {
+        const toast = document.createElement('div');
+        toast.textContent = 'Copied Wes\'s direct email (wes@aura-ai.agency) to clipboard!';
+        toast.style.cssText = 'position:fixed; bottom:20px; right:20px; background:#10B981; color:#060911; padding:12px 20px; border-radius:8px; font-weight:bold; font-family:Inter,sans-serif; z-index:9999; box-shadow:0 10px 25px rgba(0,0,0,0.5);';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 4000);
+      });
+    }
+
     const payloads = {
       logistics: {
         workflow: "3PL_CARRIER_PACKET_AND_RATECON_TRIAGE",
@@ -416,9 +451,8 @@
     }
 
     updateSimulation();
-  </script>
-<!-- Dynamic URL Parameter Personalization (Evolving Strategy) -->
-  <script>
+
+    // Dynamic URL Parameter Personalization
     window.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const clientParam = urlParams.get('client');
@@ -436,18 +470,7 @@
         if (verticalParam === 'logistics' || verticalParam === 'legal' || verticalParam === 'commercial') {
           selectEl.value = verticalParam;
           if (typeof updateSimulation === 'function') {
-           // Copy-to-Clipboard Email Fallback Function
-  function copyEmail(e) {
-    e.preventDefault();
-    navigator.clipboard.writeText('wes@aura-ai.agency').then(() => {
-      // Create a clean toast notification
-      const toast = document.createElement('div');
-      toast.textContent = 'Copied Wes\'s direct email (wes@aura-ai.agency) to clipboard!';
-      toast.style.cssText = 'position:fixed; bottom:20px; right:20px; background:#10B981; color:#060911; padding:12px 20px; border-radius:8px; font-weight:bold; font-family:Inter,sans-serif; z-index:9999; box-shadow:0 10px 25px rgba(0,0,0,0.5);';
-      document.body.appendChild(toast);
-      setTimeout(() => toast.remove(), 4000);
-    });
-  } updateSimulation();
+            updateSimulation();
           }
         }
       }
