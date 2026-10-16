@@ -417,5 +417,30 @@
 
     updateSimulation();
   </script>
+<!-- Dynamic URL Parameter Personalization (Evolving Strategy) -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const clientParam = urlParams.get('client');
+      const verticalParam = urlParams.get('vertical');
+      
+      if (clientParam) {
+        const nodeStatusEl = document.querySelector('.border-b.bg-slate-950\\/90 .flex.items-center.gap-2 span:nth-child(2)');
+        if (nodeStatusEl) {
+          nodeStatusEl.innerHTML = `TARGET ACCOUNT: <strong class="text-emerald-400">${clientParam.toUpperCase()}</strong> // `"processed_by": "aura_ai_node_v1"``;
+        }
+      }
+      
+      if (verticalParam && document.getElementById('workflowSelect')) {
+        const selectEl = document.getElementById('workflowSelect');
+        if (verticalParam === 'logistics' || verticalParam === 'legal' || verticalParam === 'commercial') {
+          selectEl.value = verticalParam;
+          if (typeof updateSimulation === 'function') {
+            updateSimulation();
+          }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
