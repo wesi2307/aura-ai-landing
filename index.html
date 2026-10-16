@@ -6,6 +6,9 @@
   <title>Isaac Sovereign Architecture | Enterprise Agentic Systems & Workflow Infrastructure</title>
   <meta name="description" content="Isaac Sovereign Architecture engineers deterministic multi-LLM pipelines, autonomous intake triage, and zero-retention CRM automation for mid-market Logistics, Legal, and Commercial Operations." />
   
+  <!-- Custom Embedded SVG Favicon (Appears in Browser Tab Immediately) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2310B981'/%3E%3Cstop offset='100%25' stop-color='%2306B6D4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23050811'/%3E%3Cpath d='M32 6L54 18.5V45.5L32 58L10 45.5V18.5L32 6Z' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Cpath d='M23 19V45M41 21H29V31H41V43H29' fill='none' stroke='%23F8FAFC' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='23' cy='19' r='3' fill='%2310B981'/%3E%3Ccircle cx='41' cy='43' r='3' fill='%2306B6D4'/%3E%3C/svg%3E" />
+
   <!-- Official Entity JSON-LD Schema -->
   <script type="application/ld+json">
   {
@@ -42,9 +45,9 @@
           },
           colors: {
             sovereign: {
-              bg: '#04060A',
-              surface: '#090D16',
-              elevated: '#0E1422',
+              bg: '#030509',
+              surface: '#080C15',
+              elevated: '#0D1322',
               accent: '#10B981',
               cyan: '#06B6D4'
             }
@@ -55,13 +58,13 @@
   </script>
   <style>
     html, body {
-      background-color: #04060A;
+      background-color: #030509;
       color: #F8FAFC;
       overflow-x: clip;
       width: 100%;
     }
     .hero-title {
-      font-size: clamp(2.35rem, 4.8vw + 0.5rem, 4.5rem);
+      font-size: clamp(2.35rem, 4.8vw + 0.5rem, 4.6rem);
       line-height: 1.04;
       letter-spacing: -0.035em;
     }
@@ -72,24 +75,48 @@
     }
     .ambient-glow {
       background:
-        radial-gradient(ellipse 80% 50% at 50% -15%, rgba(16, 185, 129, 0.14), rgba(6, 182, 212, 0.05) 45%, transparent 75%);
+        radial-gradient(ellipse 80% 50% at 50% -15%, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.05) 45%, transparent 75%);
     }
     .architectural-grid {
       background-size: 56px 56px;
       background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
     }
+    /* 2026 Cursor-Tracked Shader Bento Card */
     .bento-card {
-      background: linear-gradient(180deg, rgba(14, 20, 34, 0.75) 0%, rgba(9, 13, 22, 0.9) 100%);
+      position: relative;
+      background: linear-gradient(180deg, rgba(13, 19, 34, 0.78) 0%, rgba(8, 12, 21, 0.92) 100%);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.75), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+      overflow: hidden;
+    }
+    .bento-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        520px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+        rgba(16, 185, 129, 0.11),
+        transparent 40%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bento-card:hover::before {
+      opacity: 1;
     }
     .bento-card:hover {
-      border-color: rgba(16, 185, 129, 0.38);
+      border-color: rgba(16, 185, 129, 0.4);
       transform: translateY(-2px);
-      box-shadow: 0 24px 48px -12px rgba(16, 185, 129, 0.08), inset 0 1px 0 0 rgba(16, 185, 129, 0.25);
+    }
+    .bento-card > * {
+      position: relative;
+      z-index: 1;
     }
     /* Custom Range Slider */
     input[type="range"] {
@@ -107,8 +134,14 @@
       border-radius: 50%;
       background: #10B981;
       cursor: pointer;
-      border: 2px solid #04060A;
-      box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+      border: 2px solid #030509;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.65);
+    }
+    /* Active Pipeline Step Pulse */
+    .trace-active {
+      border-color: #10B981 !important;
+      background: rgba(16, 185, 129, 0.12) !important;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
     }
   </style>
 </head>
@@ -126,7 +159,7 @@
           NODE: <strong class="text-emerald-400 font-semibold">PRODUCTION_ACTIVE</strong> <span class="text-slate-600 mx-1.5">//</span> <span class="text-slate-300">"processed_by": "isaac_sovereign_node"</span>
         </span>
       </div>
-      <div class="hidden md:flex items-center gap-2 text-slate-500 shrink-0">
+      <div class="hidden md:flex items-center gap-3 text-slate-500 shrink-0">
         <span>HQ: NORTH FLORIDA (JAX / ORANGE PARK)</span>
         <span class="text-slate-700">•</span>
         <span class="text-emerald-400/90">ZERO-RETENTION AGENTIC PIPELINES</span>
@@ -134,20 +167,43 @@
     </div>
   </div>
 
-  <!-- Executive Header (Linear / Vercel Floating Pill Architecture) -->
-  <header class="sticky top-0 z-50 border-b border-white/[0.08] bg-[#04060A]/85 backdrop-blur-xl">
+  <!-- Executive Header (With Custom Geometric SVG Sovereign Crest) -->
+  <header class="sticky top-0 z-50 border-b border-white/[0.08] bg-[#030509]/85 backdrop-blur-xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
       
-      <!-- Left: Two-Tier Stacked Brand Lockup (Never Collides) -->
+      <!-- Left: Custom Vector SVG Sovereign Crest + Stacked Brand Lockup -->
       <a href="#" class="flex items-center gap-3.5 shrink-0 group focus:outline-none">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-cyan-500 p-[1px] shadow-lg shadow-emerald-500/15 group-hover:shadow-emerald-500/30 transition">
-          <div class="w-full h-full bg-[#060A12] rounded-[11px] flex items-center justify-center font-mono font-extrabold text-white text-lg">
-            I<span class="text-emerald-400 text-xs -ml-0.5">S</span>
-          </div>
+        <div class="relative w-11 h-11 rounded-xl bg-[#070B14] border border-white/[0.12] group-hover:border-emerald-500/60 flex items-center justify-center shadow-lg shadow-emerald-500/10 group-hover:shadow-emerald-500/25 transition duration-300 overflow-hidden">
+          <!-- Subtle internal ambient glow -->
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/15 via-transparent to-cyan-500/15 opacity-80 group-hover:opacity-100 transition"></div>
+          <!-- Custom Isometric Hex-Shield & Neural Node "IS" Vector Emblem -->
+          <svg class="w-8 h-8 relative z-10" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="crestGrad" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#10B981" />
+                <stop offset="50%" stop-color="#34D399" />
+                <stop offset="100%" stop-color="#06B6D4" />
+              </linearGradient>
+            </defs>
+            <!-- Outer Isometric Sovereign Hex-Shield -->
+            <path d="M32 5L55 18.2V45.8L32 59L9 45.8V18.2L32 5Z" stroke="url(#crestGrad)" stroke-width="2.5" stroke-opacity="0.85" fill="rgba(16, 185, 129, 0.04)" />
+            <!-- Inner Architectural Corner Brackets -->
+            <path d="M32 11L49 20.8V43.2L32 53L15 43.2V20.8L32 11Z" stroke="#1E293B" stroke-width="1" stroke-dasharray="3 3" />
+            <!-- The "I" Sovereign Pillar (Left Vertical Spine) -->
+            <path d="M23 19V45" stroke="#F8FAFC" stroke-width="4" stroke-linecap="round" />
+            <!-- The "S" Deterministic Routing Circuit (Right Interlocked Path) -->
+            <path d="M42 20H30C28.8954 20 28 20.8954 28 22V29.5C28 30.6046 28.8954 31.5 30 31.5H40C41.1046 31.5 42 32.3954 42 33.5V42C42 43.1046 41.1046 44 40 44H28" stroke="url(#crestGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- Cryptographic Telemetry Nodes -->
+            <circle cx="23" cy="19" r="2.8" fill="#10B981" />
+            <circle cx="23" cy="45" r="2.8" fill="#06B6D4" />
+            <circle cx="42" cy="20" r="2.5" fill="#F8FAFC" />
+            <circle cx="28" cy="44" r="2.5" fill="#10B981" />
+          </svg>
         </div>
+
         <div class="flex flex-col">
           <div class="font-extrabold tracking-tight text-lg sm:text-xl text-white leading-none whitespace-nowrap">
-            ISAAC <span class="text-emerald-400">SOVEREIGN</span>
+            ISAAC <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">SOVEREIGN</span>
           </div>
           <div class="font-mono text-[10px] tracking-[0.22em] text-slate-400 uppercase mt-1 leading-none whitespace-nowrap">
             Systems Architecture
@@ -164,15 +220,21 @@
           Industry Verticals
         </a>
         <a href="#simulator" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">
-          Live ROI Simulator
+          Live Pipeline Trace
         </a>
         <a href="#engagement" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">
           Engagement Model
         </a>
       </nav>
 
-      <!-- Right: CTA & Mobile Menu Trigger -->
+      <!-- Right: Command Palette Trigger + Primary CTA + Mobile Hamburger -->
       <div class="flex items-center gap-2.5 shrink-0">
+        <!-- 2026 Command Bar Trigger (Ctrl+K) -->
+        <button onclick="toggleCommandModal()" title="Open Executive Command Bar (Ctrl+K)" class="hidden xl:inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.1] text-slate-400 hover:text-white text-xs font-mono transition">
+          <span>Command</span>
+          <kbd class="px-1.5 py-0.5 text-[10px] rounded bg-white/[0.06] text-emerald-400 border border-white/[0.08]">Ctrl K</kbd>
+        </button>
+
         <a href="mailto:wes@isaacsovereign.com?subject=Isaac%20Sovereign%203-Point%20Architectural%20Diagnostic" onclick="copyEmail(event)" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white hover:bg-emerald-400 text-slate-950 font-bold text-xs tracking-wide uppercase transition shadow-lg shadow-white/5 whitespace-nowrap">
           <span>Request Diagnostic</span>
           <span class="font-mono text-xs">→</span>
@@ -194,7 +256,7 @@
     <div id="mobileMenuDrawer" class="hidden lg:hidden border-t border-white/[0.08] bg-[#060A12]/98 backdrop-blur-2xl px-6 py-5 space-y-3">
       <a href="#architecture" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-200 hover:text-emerald-400 border-b border-white/[0.05]">01 // Bento Systems Architecture</a>
       <a href="#verticals" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-200 hover:text-emerald-400 border-b border-white/[0.05]">02 // High-Yield Industry Verticals</a>
-      <a href="#simulator" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-200 hover:text-emerald-400 border-b border-white/[0.05]">03 // Live ROI & JSON Telemetry</a>
+      <a href="#simulator" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-200 hover:text-emerald-400 border-b border-white/[0.05]">03 // Live ROI &amp; Packet Trace Simulator</a>
       <a href="#engagement" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-200 hover:text-emerald-400 pb-2">04 // Tri-Layer Engagement Model</a>
       <a href="mailto:wes@isaacsovereign.com?subject=Isaac%20Sovereign%203-Point%20Architectural%20Diagnostic" onclick="copyEmail(event)" class="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20">
         Request Diagnostic (wes@isaacsovereign.com)
@@ -203,19 +265,19 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="relative ambient-glow pt-16 sm:pt-24 pb-20 sm:pb-28 px-4 sm:px-6 border-b border-white/[0.07]">
+  <section class="relative ambient-glow pt-16 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-6 border-b border-white/[0.07]">
     <div class="max-w-5xl mx-auto text-center">
       
       <!-- Eyebrow Pill -->
       <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/[0.07] text-emerald-300 text-[11px] font-mono mb-8 tracking-wider uppercase shadow-sm">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        <span>Deterministic Multi-LLM & Agentic Pipeline Engineering</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Deterministic Multi-LLM &amp; Agentic Pipeline Engineering</span>
       </div>
 
       <!-- Fluid Clamp Headline -->
       <h1 class="hero-title font-extrabold text-white mb-6 max-w-4xl mx-auto">
         Stop Burning Payroll on <br class="hidden sm:inline" />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">Manual Ops & Static Intake.</span>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">Manual Ops &amp; Static Intake.</span>
       </h1>
 
       <p class="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10 font-normal">
@@ -224,8 +286,8 @@
 
       <!-- Primary Hero CTAs -->
       <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3.5 max-w-xl mx-auto">
-        <a href="#simulator" class="px-7 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-extrabold text-sm tracking-wide transition shadow-xl shadow-emerald-500/20 text-center">
-          Run Live ROI & Payload Simulator →
+        <a href="#simulator" onclick="setTimeout(runPipelineTrace, 400)" class="px-7 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-extrabold text-sm tracking-wide transition shadow-xl shadow-emerald-500/20 text-center">
+          ▶ Run Live Pipeline &amp; ROI Simulator
         </a>
         <a href="mailto:wes@isaacsovereign.com?subject=Operational%20Workflow%20Diagnostic%20Inquiry" onclick="copyEmail(event)" class="px-7 py-4 rounded-xl border border-white/[0.14] bg-white/[0.03] hover:bg-white/[0.07] hover:border-emerald-500/40 text-white font-semibold text-sm transition text-center font-mono">
           wes@isaacsovereign.com
@@ -251,10 +313,25 @@
           <div class="text-xs text-slate-400 mt-1.5 leading-snug">Turnkey Production Deployment Inside Your Existing Stack</div>
         </div>
       </div>
+
+      <!-- 2026 Enterprise Ecosystem Compatibility Bar -->
+      <div class="mt-12 pt-8 border-t border-white/[0.05]">
+        <div class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.25em] mb-4">
+          NATIVE ZERO-RETENTION ORCHESTRATION ACROSS ENTERPRISE INFRASTRUCTURE
+        </div>
+        <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-xs font-mono text-slate-400 opacity-80">
+          <span class="hover:text-emerald-400 transition">◆ ANTHROPIC CLAUDE ENTERPRISE</span>
+          <span class="hover:text-emerald-400 transition">◆ GOOGLE GEMINI PRO</span>
+          <span class="hover:text-emerald-400 transition">◆ MAKE.COM WEBHOOKS</span>
+          <span class="hover:text-emerald-400 transition">◆ HUBSPOT &amp; SALESFORCE</span>
+          <span class="hover:text-emerald-400 transition">◆ SERVICETITAN &amp; CLIO</span>
+          <span class="hover:text-emerald-400 transition">◆ TMS / MCLEOD / TURBOVAN</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Section 01: Asymmetric Bento Grid Architecture (2026 Linear/Vercel Pattern) -->
+  <!-- Section 01: Asymmetric Bento Grid Architecture -->
   <section id="architecture" class="py-20 sm:py-28 px-4 sm:px-6 border-b border-white/[0.07]">
     <div class="max-w-7xl mx-auto">
       <div class="max-w-3xl mb-14">
@@ -273,15 +350,14 @@
           <div>
             <div class="flex items-center justify-between gap-2 mb-5">
               <span class="px-3 py-1 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">XML-ISOLATED TRIAGE ENGINE</span>
-              <span class="text-xs font-mono text-slate-500"> LAYER_01 // ROUTING</span>
+              <span class="text-xs font-mono text-slate-500">LAYER_01 // ROUTING</span>
             </div>
             <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">Deterministic Multi-LLM Orchestration</h3>
             <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-6">
               Unstructured PDFs, carrier rate confirmations, legal medical chronologies, and inbound emails are parsed using strict XML tag boundaries across Anthropic Claude and Gemini Pro. Payloads must pass a hard JSON schema check and confidence threshold (<code class="text-emerald-300 font-mono">&gt;= 0.94</code>) before touching your database.
             </p>
           </div>
-          <!-- Mini Visual Pipeline inside Bento -->
-          <div class="p-4 rounded-xl bg-[#04060A]/90 border border-white/[0.07] font-mono text-xs text-slate-300 flex flex-wrap items-center justify-between gap-2">
+          <div class="p-4 rounded-xl bg-[#030509]/90 border border-white/[0.07] font-mono text-xs text-slate-300 flex flex-wrap items-center justify-between gap-2">
             <span class="px-2.5 py-1 rounded bg-white/[0.04] text-slate-300">1. Raw PDF/Email</span>
             <span class="text-emerald-400">→</span>
             <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">2. PII Scrub &amp; XML Lock</span>
@@ -302,7 +378,7 @@
               Your proprietary client data is never used to train public AI models. Our middleware strips sensitive identifiers in transit and routes strictly through zero-data-retention enterprise endpoints.
             </p>
           </div>
-          <div class="p-4 rounded-xl bg-[#04060A]/90 border border-white/[0.07] font-mono text-xs space-y-1.5">
+          <div class="p-4 rounded-xl bg-[#030509]/90 border border-white/[0.07] font-mono text-xs space-y-1.5">
             <div class="flex justify-between"><span class="text-slate-500">PUBLIC_MODEL_TRAINING:</span><span class="text-rose-400 font-semibold">BLOCKED (0%)</span></div>
             <div class="flex justify-between"><span class="text-slate-500">PII_REDACTION_STATE:</span><span class="text-emerald-400 font-semibold">ENFORCED</span></div>
             <div class="flex justify-between"><span class="text-slate-500">HITL_ESCALATION_QUEUE:</span><span class="text-cyan-400 font-semibold">ACTIVE</span></div>
@@ -322,7 +398,7 @@
             </p>
           </div>
           <div class="text-xs font-mono text-slate-400 pt-4 border-t border-white/[0.07]">
-            Connectors: Make.com Enterprise · REST Webhooks · Custom Node/Python Workers
+            Connectors: Make.com Enterprise · REST Webhooks · Custom Workers
           </div>
         </div>
 
@@ -348,7 +424,7 @@
     </div>
   </section>
 
-  <!-- Section 02: High-Yield Industry Verticals (Restored & Upgraded) -->
+  <!-- Section 02: High-Yield Industry Verticals -->
   <section id="verticals" class="py-20 sm:py-28 px-4 sm:px-6 border-b border-white/[0.07] bg-[#060911]/60">
     <div class="max-w-7xl mx-auto">
       <div class="text-center max-w-3xl mx-auto mb-14">
@@ -360,7 +436,6 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <!-- Vertical 1: Logistics -->
         <div class="bento-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
@@ -372,12 +447,11 @@
               Eliminate manual COI insurance verification, W-9 TIN matching, FMCSA authority checks, and repetitive track-and-trace calls. Incoming carrier PDFs are validated and synced to your TMS automatically.
             </p>
           </div>
-          <div class="p-3.5 rounded-xl bg-[#04060A] border border-white/[0.07] font-mono text-xs text-emerald-300">
+          <div class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] font-mono text-xs text-emerald-300">
             Replaces: 2–3 Full-Time Track &amp; Trace / Billing Coordinators
           </div>
         </div>
 
-        <!-- Vertical 2: Legal -->
         <div class="bento-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
@@ -389,12 +463,11 @@
               Instant 24/7 claimant qualification, statute-of-limitations verification, conflict pre-checks, and zero-hallucination medical record summarization with page-level citation anchoring into Clio or Filevine.
             </p>
           </div>
-          <div class="p-3.5 rounded-xl bg-[#04060A] border border-white/[0.07] font-mono text-xs text-cyan-300">
+          <div class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] font-mono text-xs text-cyan-300">
             Replaces: After-Hours Answering Services &amp; Intake Lag
           </div>
         </div>
 
-        <!-- Vertical 3: Commercial -->
         <div class="bento-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
@@ -406,7 +479,7 @@
               Stop losing six-figure commercial bids and white-label IT tickets to static forms. Agentic qualifiers verify facility size, scope, and decision-maker authority 24/7 and book straight into ServiceTitan or HubSpot.
             </p>
           </div>
-          <div class="p-3.5 rounded-xl bg-[#04060A] border border-white/[0.07] font-mono text-xs text-emerald-300">
+          <div class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] font-mono text-xs text-emerald-300">
             Replaces: Static Web Forms &amp; Missed-Call Leakage
           </div>
         </div>
@@ -414,11 +487,42 @@
     </div>
   </section>
 
-  <!-- Section 03: Interactive Payroll-to-Pipeline ROI & Live Payload Terminal -->
+  <!-- Section 03: Interactive Payroll-to-Pipeline ROI & Live 4-Stage Packet Trace Simulator -->
   <section id="simulator" class="py-20 sm:py-28 px-4 sm:px-6 border-b border-white/[0.07]">
     <div class="max-w-7xl mx-auto">
+      
+      <!-- Live 4-Node Execution Stepper (2026 Interactive Product Proof) -->
+      <div class="mb-8 p-5 rounded-2xl bg-[#070B14] border border-white/[0.08]">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-300">LIVE 4-NODE EXECUTION SANDBOX // CLICK TO TEST PACKET TRIAGE</span>
+          </div>
+          <button onclick="runPipelineTrace()" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs font-mono uppercase tracking-wider transition shadow-lg shadow-emerald-500/20">
+            ▶ Simulate Live Packet Trace (840ms)
+          </button>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 font-mono text-xs">
+          <div id="traceStep1" class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] transition duration-300">
+            <div class="text-[10px] text-slate-500">NODE_01 // 0.12s</div>
+            <div class="text-white font-semibold mt-0.5">1. Webhook Ingest</div>
+          </div>
+          <div id="traceStep2" class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] transition duration-300">
+            <div class="text-[10px] text-slate-500">NODE_02 // 0.24s</div>
+            <div class="text-white font-semibold mt-0.5">2. Zero-Retention PII Scrub</div>
+          </div>
+          <div id="traceStep3" class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] transition duration-300">
+            <div class="text-[10px] text-slate-500">NODE_03 // 0.31s</div>
+            <div class="text-white font-semibold mt-0.5">3. XML Schema Eval</div>
+          </div>
+          <div id="traceStep4" class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] transition duration-300">
+            <div class="text-[10px] text-slate-500">NODE_04 // 0.17s</div>
+            <div class="text-white font-semibold mt-0.5">4. Deterministic CRM Commit</div>
+          </div>
+        </div>
+      </div>
+
       <div class="grid lg:grid-cols-12 gap-8 items-stretch">
-        
         <!-- Left: Interactive Controls (5 Cols) -->
         <div class="lg:col-span-5 bento-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between">
           <div>
@@ -431,7 +535,7 @@
             <div class="space-y-6">
               <div>
                 <label for="workflowSelect" class="block text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-2">Select Operational Workflow</label>
-                <select id="workflowSelect" onchange="updateSimulation()" class="w-full p-3.5 rounded-xl bg-[#04060A] border border-white/[0.12] text-white text-sm font-medium focus:outline-none focus:border-emerald-400 transition">
+                <select id="workflowSelect" onchange="updateSimulation()" class="w-full p-3.5 rounded-xl bg-[#030509] border border-white/[0.12] text-white text-sm font-medium focus:outline-none focus:border-emerald-400 transition">
                   <option value="logistics">3PL / Freight: Carrier Packet &amp; Rate-Con Triage</option>
                   <option value="legal">Law Firm: 24/7 Claimant Intake &amp; Medical Triage</option>
                   <option value="commercial">Commercial / MSP: High-Ticket Scope Qualification</option>
@@ -457,7 +561,7 @@
           </div>
 
           <div class="grid grid-cols-2 gap-3.5 pt-6 mt-6 border-t border-white/[0.08]">
-            <div class="p-4 rounded-xl bg-[#04060A] border border-white/[0.07]">
+            <div class="p-4 rounded-xl bg-[#030509] border border-white/[0.07]">
               <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Current Annual Burn</div>
               <div id="burnOutput" class="text-xl sm:text-2xl font-extrabold text-white font-mono mt-1">$150,000/yr</div>
             </div>
@@ -470,15 +574,15 @@
 
         <!-- Right: Live Deterministic Payload Terminal (7 Cols) -->
         <div class="lg:col-span-7 rounded-2xl bg-[#020306] border border-white/[0.1] overflow-hidden shadow-2xl flex flex-col justify-between">
-          <div class="px-5 py-3.5 bg-[#080C14] border-b border-white/[0.08] flex flex-wrap items-center justify-between gap-2">
+          <div class="px-5 py-3.5 bg-[#070B14] border-b border-white/[0.08] flex flex-wrap items-center justify-between gap-2">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
               <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
               <span class="ml-2 text-xs font-mono text-slate-400">isaac_sovereign_agent_v1.json</span>
             </div>
-            <div class="flex items-center gap-3">
-              <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded">LATENCY: 0.84s</span>
+            <div class="flex items-center gap-2.5">
+              <span id="latencyBadge" class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded">STATUS: VERIFIED (0.84s)</span>
               <button onclick="copyPayload()" class="text-[11px] font-mono text-slate-300 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.1] px-2.5 py-0.5 rounded transition">
                 Copy JSON
               </button>
@@ -491,7 +595,7 @@
     </div>
   </section>
 
-  <!-- Section 04: Unified Tri-Layer Enterprise Engagement Model (Restored & Upgraded) -->
+  <!-- Section 04: Unified Tri-Layer Enterprise Engagement Model -->
   <section id="engagement" class="py-20 sm:py-28 px-4 sm:px-6 border-b border-white/[0.07] bg-[#060911]/60">
     <div class="max-w-7xl mx-auto">
       <div class="max-w-3xl mb-14">
@@ -503,7 +607,6 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <!-- Layer 1 -->
         <div class="bento-card rounded-2xl p-8 flex flex-col justify-between">
           <div>
             <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Layer 01 // Foundation</div>
@@ -518,7 +621,6 @@
           </div>
         </div>
 
-        <!-- Layer 2 -->
         <div class="bento-card rounded-2xl p-8 border-emerald-500/50 flex flex-col justify-between relative">
           <div>
             <div class="flex items-center justify-between">
@@ -536,7 +638,6 @@
           </div>
         </div>
 
-        <!-- Layer 3 -->
         <div class="bento-card rounded-2xl p-8 flex flex-col justify-between">
           <div>
             <div class="text-xs font-mono text-cyan-400 uppercase tracking-wider">Layer 03 // Aligned Incentives</div>
@@ -573,8 +674,45 @@
     </div>
   </section>
 
+  <!-- 2026 Executive Command Palette Modal (Ctrl+K / Cmd+K) -->
+  <div id="commandModal" class="fixed inset-0 z-[100] hidden bg-black/75 backdrop-blur-md flex items-start justify-center pt-24 px-4">
+    <div class="w-full max-w-lg rounded-2xl bg-[#080C15] border border-white/[0.15] shadow-2xl overflow-hidden">
+      <div class="px-4 py-3 border-b border-white/[0.08] flex items-center justify-between">
+        <span class="text-xs font-mono text-emerald-400">ISAAC SOVEREIGN // EXECUTIVE COMMAND BAR</span>
+        <button onclick="toggleCommandModal()" class="text-xs font-mono text-slate-400 hover:text-white px-2 py-0.5 rounded bg-white/[0.05]">ESC</button>
+      </div>
+      <div class="p-3 space-y-1.5 font-mono text-xs">
+        <button onclick="selectCommandVertical('logistics')" class="w-full text-left px-3.5 py-2.5 rounded-lg hover:bg-emerald-500/15 text-slate-200 hover:text-emerald-300 flex justify-between items-center transition">
+          <span>▶ Load 3PL / Freight Carrier Packet Schema</span>
+          <span class="text-slate-500">Vertical 01</span>
+        </button>
+        <button onclick="selectCommandVertical('legal')" class="w-full text-left px-3.5 py-2.5 rounded-lg hover:bg-emerald-500/15 text-slate-200 hover:text-emerald-300 flex justify-between items-center transition">
+          <span>▶ Load Legal 24/7 Claimant Intake Schema</span>
+          <span class="text-slate-500">Vertical 02</span>
+        </button>
+        <button onclick="selectCommandVertical('commercial')" class="w-full text-left px-3.5 py-2.5 rounded-lg hover:bg-emerald-500/15 text-slate-200 hover:text-emerald-300 flex justify-between items-center transition">
+          <span>▶ Load Commercial / MSP Scope Qualifier Schema</span>
+          <span class="text-slate-500">Vertical 03</span>
+        </button>
+        <button onclick="toggleCommandModal(); copyEmail(event);" class="w-full text-left px-3.5 py-2.5 rounded-lg hover:bg-cyan-500/15 text-cyan-300 flex justify-between items-center transition border-t border-white/[0.06] mt-2 pt-3">
+          <span>✉ Copy Principal Architect Email (wes@isaacsovereign.com)</span>
+          <span class="text-slate-500">Clipboard</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Interactive Scripts -->
   <script>
+    // 2026 Cursor-Tracked Radial Shader Effect on Bento Cards
+    document.querySelectorAll('.bento-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+
     function toggleMobileMenu() {
       const drawer = document.getElementById('mobileMenuDrawer');
       const openIcon = document.getElementById('menuIconOpen');
@@ -584,10 +722,34 @@
       closeIcon.classList.toggle('hidden');
     }
 
+    function toggleCommandModal() {
+      document.getElementById('commandModal').classList.toggle('hidden');
+    }
+
+    function selectCommandVertical(v) {
+      toggleCommandModal();
+      const selectEl = document.getElementById('workflowSelect');
+      selectEl.value = v;
+      updateSimulation();
+      document.getElementById('simulator').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(runPipelineTrace, 500);
+    }
+
+    // Keyboard shortcut Ctrl+K or Cmd+K
+    window.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        toggleCommandModal();
+      }
+      if (e.key === 'Escape') {
+        document.getElementById('commandModal').classList.add('hidden');
+      }
+    });
+
     function showToast(msg) {
       const toast = document.createElement('div');
       toast.textContent = msg;
-      toast.style.cssText = 'position:fixed; bottom:20px; right:20px; left:20px; max-width:420px; margin-left:auto; background:#10B981; color:#04060A; padding:14px 20px; border-radius:10px; font-weight:700; font-family:Inter,sans-serif; font-size:13px; z-index:9999; box-shadow:0 15px 30px rgba(0,0,0,0.6); text-align:center;';
+      toast.style.cssText = 'position:fixed; bottom:20px; right:20px; left:20px; max-width:420px; margin-left:auto; background:#10B981; color:#030509; padding:14px 20px; border-radius:10px; font-weight:700; font-family:Inter,sans-serif; font-size:13px; z-index:9999; box-shadow:0 15px 30px rgba(0,0,0,0.6); text-align:center;';
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 4000);
     }
@@ -680,6 +842,26 @@
         .replace(/: (\d+\.?\d*)/g, ': <span class="text-amber-300 font-bold">$1</span>');
 
       document.getElementById('jsonTerminal').innerHTML = highlighted;
+    }
+
+    // Live 4-Node Packet Execution Trace Animation
+    function runPipelineTrace() {
+      const steps = ['traceStep1', 'traceStep2', 'traceStep3', 'traceStep4'];
+      const badge = document.getElementById('latencyBadge');
+      steps.forEach(id => document.getElementById(id).classList.remove('trace-active'));
+      badge.textContent = 'EXECUTING PIPELINE...';
+
+      steps.forEach((id, idx) => {
+        setTimeout(() => {
+          steps.forEach(s => document.getElementById(s).classList.remove('trace-active'));
+          document.getElementById(id).classList.add('trace-active');
+          if (idx === steps.length - 1) {
+            updateSimulation();
+            badge.textContent = 'COMMITTED TO CRM (0.84s)';
+            showToast('Live Packet Trace Complete: Schema Validated & Synced (0.84s)');
+          }
+        }, idx * 220);
+      });
     }
 
     function copyPayload() {
