@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Isaac Sovereign Architecture | Enterprise AI Infrastructure</title>
-  <meta name="description" content="Isaac Sovereign Architecture engineers deterministic multi-LLM pipelines, autonomous intake triage, and backend CRM automation for mid-market Operations." />
+  <title>Isaac Sovereign Architecture | Enterprise Agentic Workflows</title>
+  <meta name="description" content="Isaac Sovereign engineers deterministic multi-LLM pipelines, agentic workflows, and zero-retention CRM automation for mid-market Operations." />
   
   <!-- Official Entity JSON-LD Schema (Brand Defense) -->
   <script type="application/ld+json">
@@ -23,7 +23,7 @@
       "addressRegion": "FL",
       "addressCountry": "US"
     },
-    "description": "Enterprise multi-LLM workflow orchestration, deterministic intake triage, and backend CRM automation for mid-market Logistics, Legal, and Commercial Operations.",
+    "description": "Enterprise multi-LLM workflow orchestration, deterministic intake triage, and agentic CRM automation for Logistics, Legal, and Commercial Operations.",
     "email": "wes@isaacsovereign.com"
   }
   </script>
@@ -31,7 +31,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -42,11 +42,11 @@
           },
           colors: {
             isaac: {
-              bg: '#060911',
-              card: '#0D1322',
+              bg: '#020408',
+              card: '#080C14',
               border: '#1E293B',
               accent: '#10B981',
-              cyan: '#06B6D4'
+              muted: '#64748B'
             }
           }
         }
@@ -54,332 +54,243 @@
     }
   </script>
   <style>
-    body { background-color: #060911; color: #F8FAFC; }
+    body { background-color: #020408; color: #F8FAFC; }
     .glow-mesh {
-      background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.14) 0%, rgba(6, 182, 212, 0.06) 35%, rgba(6, 9, 17, 0) 70%);
+      background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.06) 0%, rgba(2, 4, 8, 0) 65%);
     }
     .grid-bg {
-      background-size: 40px 40px;
-      background-image: linear-gradient(to right, rgba(30, 41, 59, 0.25) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(30, 41, 59, 0.25) 1px, transparent 1px);
+      background-size: 60px 60px;
+      background-image: linear-gradient(to right, rgba(30, 41, 59, 0.12) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(30, 41, 59, 0.12) 1px, transparent 1px);
     }
   </style>
 </head>
-<body class="antialiased selection:bg-emerald-500 selection:text-black grid-bg">
+<body class="antialiased selection:bg-emerald-900 selection:text-emerald-100 grid-bg">
 
   <!-- Top Telemetry Bar -->
-  <div class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-md text-xs font-mono text-slate-400 py-2 px-4">
-    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span>NODE STATUS: <strong class="text-emerald-400">PRODUCTION_ACTIVE</strong> // `"processed_by": "isaac_sovereign_node"`</span>
+  <div class="border-b border-slate-800/60 bg-[#020408]/95 backdrop-blur-md text-[11px] font-mono text-slate-400 py-2.5 px-6">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2 tracking-wide">
+      <div class="flex items-center gap-3">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>NODE STATUS: <strong class="text-emerald-400">PRODUCTION_ACTIVE</strong> <span class="mx-2 text-slate-700">|</span> `"processed_by": "isaac_sovereign_node"`</span>
       </div>
-      <div class="hidden sm:block text-slate-500">
-        HQ: NORTH FLORIDA (ORANGE PARK) // MULTI-LLM ORCHESTRATION
+      <div class="hidden md:block text-slate-500">
+        HQ: NORTH FLORIDA (ORANGE PARK) // ZERO-RETENTION AGENTIC ARCHITECTURE
       </div>
     </div>
   </div>
 
   <!-- Navigation -->
-  <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-[#060911]/85 backdrop-blur-lg">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="flex items-center gap-2.5">
-        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center font-mono font-bold text-slate-950 text-lg shadow-lg shadow-emerald-500/20">I</div>
-        <span class="font-extrabold tracking-tight text-xl text-white">ISAAC <span class="text-emerald-400">SOVEREIGN</span></span>
+  <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-[#020408]/90 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      
+      <!-- Brand Logo & Name -->
+      <a href="#" class="flex items-center gap-4 group">
+        <div class="w-11 h-11 rounded bg-[#080C14] border border-slate-700 flex items-center justify-center font-mono font-bold text-white text-xl group-hover:border-emerald-500/50 transition duration-300 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+          I
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="font-extrabold tracking-tight text-2xl sm:text-3xl text-white whitespace-nowrap drop-shadow-md">ISAAC <span class="text-emerald-500 font-medium">SOVEREIGN</span></span>
+          <span class="h-7 w-px bg-slate-700 hidden sm:block"></span>
+          <span class="text-[11px] font-semibold tracking-widest text-slate-400 uppercase hidden sm:block mt-1">Architecture</span>
+        </div>
       </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#architecture" class="hover:text-emerald-400 transition">Systems Architecture</a>
-        <a href="#verticals" class="hover:text-emerald-400 transition">Industry Verticals</a>
-        <a href="#simulator" class="hover:text-emerald-400 transition">Live ROI & Telemetry</a>
-        <a href="#engagement" class="hover:text-emerald-400 transition">Engagement Model</a>
+
+      <!-- Center Nav Links -->
+      <nav class="hidden lg:flex items-center gap-10 text-[13px] font-semibold text-slate-400 tracking-wide uppercase">
+        <a href="#architecture" class="hover:text-white transition">Infrastructure</a>
+        <a href="#verticals" class="hover:text-white transition">Deployments</a>
+        <a href="#simulator" class="hover:text-white transition">Live Telemetry</a>
+        <a href="#engagement" class="hover:text-white transition">Engagement Model</a>
       </nav>
-      <a href="mailto:wes@isaacsovereign.com?subject=Isaac%20Sovereign%203-Point%20Architectural%20Brief%20Request" onclick="copyEmail(event)" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-sm transition shadow-lg shadow-emerald-500/20">
-        Request Architecture Brief
+
+      <!-- CTA Button -->
+      <a href="mailto:wes@isaacsovereign.com?subject=Isaac%20Sovereign%20Architectural%20Diagnostic" onclick="copyEmail(event)" class="hidden md:block px-6 py-3 rounded bg-white hover:bg-slate-200 text-slate-950 font-bold text-[13px] uppercase tracking-wide transition shadow-[0_0_20px_rgba(255,255,255,0.1)] whitespace-nowrap">
+        Request Diagnostic
       </a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="relative glow-mesh pt-20 pb-24 px-6 border-b border-slate-800/80">
+  <section class="relative glow-mesh pt-28 pb-32 px-6 border-b border-slate-800/60">
     <div class="max-w-5xl mx-auto text-center">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-xs font-mono mb-8">
-        <span>ENTERPRISE B2B AI WORKFLOW & PIPELINE ARCHITECTURE</span>
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 text-[11px] font-mono mb-8 tracking-widest uppercase">
+        <span>B2B Agentic Workflow & Enterprise Automation</span>
       </div>
-      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6">
-        Stop Burning Payroll on <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Manual Ops & Static Intake.</span>
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.05] mb-8">
+        Scale Operations with <br class="hidden sm:block" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500 drop-shadow-lg">Agentic Architecture.</span>
       </h1>
-      <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10">
-        We don't build fragile demo chatbots. Isaac Sovereign engineers deterministic, multi-LLM backend pipelines that automate <strong>80% of manual carrier compliance, legal intake triage, and high-ticket CRM routing</strong>—directly inside your existing stack.
+      <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-12 font-light">
+        We do not build fragile chat wrappers. Isaac Sovereign engineers deterministic, multi-LLM backend pipelines that autonomously triage carrier compliance, legal intake, and high-ticket CRM routing. <strong>Zero data retention. Strict API guardrails.</strong>
       </p>
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-        <a href="#simulator" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-base transition shadow-xl shadow-emerald-500/20">
-          Test Live Architecture & ROI Simulator →
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+        <a href="#simulator" class="w-full sm:w-auto px-8 py-4 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[14px] uppercase tracking-wide transition shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+          Test Live Payload Simulator
         </a>
-        <a href="mailto:wes@isaacsovereign.com?subject=Operational%20Workflow%20Diagnostic%20Inquiry" onclick="copyEmail(event)" class="w-full sm:w-auto px-7 py-4 rounded-xl border border-slate-700 bg-slate-900/70 hover:border-slate-500 text-white font-semibold text-base transition">
-          Direct Architect Access: wes@isaacsovereign.com
+        <a href="mailto:wes@isaacsovereign.com?subject=Operational%20Workflow%20Diagnostic%20Inquiry" onclick="copyEmail(event)" class="w-full sm:w-auto px-8 py-4 rounded border border-slate-700 bg-slate-900/50 hover:border-slate-500 text-white font-semibold text-[14px] transition">
+          Direct Architect Access
         </a>
       </div>
 
       <!-- Proof Metrics Bar -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-10 border-t border-slate-800/80 text-left">
-        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800">
-          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">>70%</div>
-          <div class="text-xs text-slate-400 mt-1">SLA Cycle-Time Compression on Manual Document Triage</div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 pt-12 border-t border-slate-800/60 text-center md:text-left">
+        <div>
+          <div class="text-3xl font-extrabold text-white font-mono">>70%</div>
+          <div class="text-[11px] text-slate-500 mt-2 uppercase tracking-widest font-semibold">SLA Cycle Compression</div>
         </div>
-        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800">
-          <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-mono">24/7/365</div>
-          <div class="text-xs text-slate-400 mt-1">Autonomous Lead Qualification & Deterministic CRM Sync</div>
+        <div>
+          <div class="text-3xl font-extrabold text-white font-mono">24/7</div>
+          <div class="text-[11px] text-slate-500 mt-2 uppercase tracking-widest font-semibold">Autonomous Lead Triage</div>
         </div>
-        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800">
-          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">0.0%</div>
-          <div class="text-xs text-slate-400 mt-1">Schema Drift via XML-Isolated Guardrails & HITL Queues</div>
+        <div>
+          <div class="text-3xl font-extrabold text-emerald-500 font-mono">0.0%</div>
+          <div class="text-[11px] text-slate-500 mt-2 uppercase tracking-widest font-semibold">Schema Data Drift</div>
         </div>
-        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800">
-          <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-mono">14–21 Days</div>
-          <div class="text-xs text-slate-400 mt-1">Rapid Turnkey Deployment Into Your Current Tech Stack</div>
+        <div>
+          <div class="text-3xl font-extrabold text-white font-mono">14 Days</div>
+          <div class="text-[11px] text-slate-500 mt-2 uppercase tracking-widest font-semibold">Turnkey Deployment</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Core Technical Architecture Section -->
-  <section id="architecture" class="py-20 px-6 border-b border-slate-800/80">
+  <section id="architecture" class="py-32 px-6 border-b border-slate-800/60">
     <div class="max-w-7xl mx-auto">
-      <div class="max-w-3xl mb-14">
-        <div class="text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">// PRODUCTION INFRASTRUCTURE, NOT VAPORWARE</div>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Why Enterprise Operators Replace Offshore Staffing & Static Forms With Isaac Sovereign</h2>
-        <p class="text-slate-400">Most agencies slap a basic prompt wrapper onto a webpage and hope it doesn't hallucinate. We architect fault-tolerant middleware that enforces strict business logic between your unstructured inputs (PDFs, emails, calls, web forms) and your database.</p>
+      <div class="max-w-3xl mb-20">
+        <div class="text-emerald-500 font-mono text-[11px] uppercase tracking-widest mb-4">// ENTERPRISE INFRASTRUCTURE</div>
+        <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6 tracking-tight">Why Elite Operators Choose Isaac Sovereign</h2>
+        <p class="text-slate-400 text-lg font-light leading-relaxed">We architect fault-tolerant middleware that enforces strict business logic between your unstructured inputs (PDFs, emails, web forms) and your enterprise CRM. No hallucinations. Just math.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-7 rounded-2xl bg-[#0D1322] border border-slate-800 hover:border-emerald-500/50 transition">
-          <div class="text-xs font-mono text-emerald-400 mb-3">01 // XML-ISOLATED TRIAGE</div>
-          <h3 class="text-xl font-bold text-white mb-3">Deterministic Multi-LLM Routing</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            We orchestrate Claude Sonnet, Gemini Pro, and GPT-4 via strict XML tag isolation and JSON schema validation. Unstructured PDFs, carrier packets, and client inquiries are parsed with mathematical precision before ever touching your CRM.
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-10 rounded-xl bg-[#080C14] border border-slate-800 hover:border-emerald-500/40 transition duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-bl-full blur-2xl"></div>
+          <div class="text-[11px] font-mono text-slate-500 mb-5 tracking-widest">01 // XML-ISOLATED TRIAGE</div>
+          <h3 class="text-2xl font-bold text-white mb-4">Deterministic Multi-LLM Routing</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-8 font-light">
+            We orchestrate Anthropic Claude and Gemini Pro via strict XML tag isolation and JSON schema validation. Unstructured carrier packets and client inquiries are parsed with precision before touching your database.
           </p>
-          <div class="text-xs font-mono text-slate-500 pt-3 border-t border-slate-800/80">Stack: Anthropic API · Gemini Pro · Strict JSON Schema</div>
+          <div class="text-[11px] font-mono text-emerald-500/70 pt-5 border-t border-slate-800/80 uppercase tracking-widest">Stack: Anthropic · Gemini · JSON</div>
         </div>
 
-        <div class="p-7 rounded-2xl bg-[#0D1322] border border-slate-800 hover:border-cyan-500/50 transition">
-          <div class="text-xs font-mono text-cyan-400 mb-3">02 // WEBHOOK ORCHESTRATION</div>
-          <h3 class="text-xl font-bold text-white mb-3">Zero-Rip-and-Replace Integration</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            Your team keeps using the software they already know. Our webhook pipelines connect directly into HubSpot, Salesforce, ServiceTitan, TMS platforms, Clio, and Google Workspace with real-time Human-in-the-Loop (HITL) escalation.
+        <div class="p-10 rounded-xl bg-[#080C14] border border-slate-800 hover:border-emerald-500/40 transition duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-bl-full blur-2xl"></div>
+          <div class="text-[11px] font-mono text-slate-500 mb-5 tracking-widest">02 // AGENTIC ORCHESTRATION</div>
+          <h3 class="text-2xl font-bold text-white mb-4">Zero-Retention Middleware</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-8 font-light">
+            Your team keeps using the software they already know. Our agentic pipelines connect directly into HubSpot, Salesforce, ServiceTitan, and Google Workspace, scrubbing PII to ensure zero data retention on public servers.
           </p>
-          <div class="text-xs font-mono text-slate-500 pt-3 border-t border-slate-800/80">Stack: Make.com Enterprise · Custom Webhooks · Voiceflow</div>
+          <div class="text-[11px] font-mono text-cyan-500/70 pt-5 border-t border-slate-800/80 uppercase tracking-widest">Stack: Make.com · Custom Webhooks</div>
         </div>
 
-        <div class="p-7 rounded-2xl bg-[#0D1322] border border-slate-800 hover:border-emerald-500/50 transition">
-          <div class="text-xs font-mono text-emerald-400 mb-3">03 // CRYPTOGRAPHIC ATTRIBUTION</div>
-          <h3 class="text-xl font-bold text-white mb-3">Verified Telemetry & Drift Governance</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            Every automated payload is stamped with <code class="text-emerald-300">"processed_by": "isaac_sovereign_node"</code> against a 30-day pre-deployment baseline snapshot—giving your CFO indisputable proof of hours saved and revenue captured.
+        <div class="p-10 rounded-xl bg-[#080C14] border border-slate-800 hover:border-emerald-500/40 transition duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-bl-full blur-2xl"></div>
+          <div class="text-[11px] font-mono text-slate-500 mb-5 tracking-widest">03 // RESPONSIBLE GOVERNANCE</div>
+          <h3 class="text-2xl font-bold text-white mb-4">Verified Telemetry & Drift Defense</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-8 font-light">
+            Every automated payload is cryptographically stamped with <code class="text-emerald-400">"processed_by": "isaac_sovereign"</code> against a 30-day pre-deployment baseline snapshot, providing your CFO with indisputable proof of hours saved.
           </p>
-          <div class="text-xs font-mono text-slate-500 pt-3 border-t border-slate-800/80">Stack: PRM Drift Auditing · FinOps Token Optimization</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- High-Yield Verticals -->
-  <section id="verticals" class="py-20 px-6 border-b border-slate-800/80 bg-slate-950/40">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">// DEPLOYMENT VERTICALS</div>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Built for Operations-Heavy Mid-Market Firms</h2>
-        <p class="text-slate-400">If you are currently posting $55K–$90K W-2 job openings just to keep up with manual data entry, intake triage, or dispatch coordination, we automate 80% of that bottleneck in weeks.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Logistics -->
-        <div class="p-7 rounded-2xl bg-[#0D1322] border border-slate-800 flex flex-col justify-between">
-          <div>
-            <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Freight Brokerages & 3PLs</span>
-            <h3 class="text-xl font-bold text-white mt-4 mb-3">Carrier Packet & Rate-Con Automation</h3>
-            <p class="text-slate-400 text-sm mb-6">
-              Eliminate manual COI verification, W-9 extraction, rate confirmation entry, and repetitive track-and-trace check calls. Incoming carrier PDFs are validated and synced to your TMS in under 9 seconds.
-            </p>
-          </div>
-          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800/90 font-mono text-xs text-slate-300">
-            Replaces: 2–3 Full-Time Track & Trace / Billing Coordinators
-          </div>
-        </div>
-
-        <!-- Legal & Financial -->
-        <div class="p-7 rounded-2xl bg-[#0D1322] border border-slate-800 flex flex-col justify-between">
-          <div>
-            <span class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Personal Injury, Mass Tort & Compliance</span>
-            <h3 class="text-xl font-bold text-white mt-4 mb-3">24/7 Case Triage & Chronology Extraction</h3>
-            <p class="text-slate-400 text-sm mb-6">
-              Instant, empathetic 24/7 claimant qualification, automated conflict pre-checks, and zero-hallucination medical/financial document summarization with strict citation anchoring.
-            </p>
-          </div>
-          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800/90 font-mono text-xs text-slate-300">
-            Replaces: After-Hours Answering Services & Manual Intake Lag
-          </div>
-        </div>
-
-        <!-- Commercial Construction & Home Services -->
-        <div class="p-7 rounded-2xl bg-[#0D1322] border border-slate-800 flex flex-col justify-between">
-          <div>
-            <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Commercial Roofing, Design-Build & Fleets</span>
-            <h3 class="text-xl font-bold text-white mt-4 mb-3">High-Ticket Lead Qualification & Dispatch</h3>
-            <p class="text-slate-400 text-sm mb-6">
-              Stop losing six-figure commercial bids and emergency service jobs to static contact forms. Dynamic conversational agents pre-qualify scope, budget, and property data 24/7 and book straight into ServiceTitan or HubSpot.
-            </p>
-          </div>
-          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800/90 font-mono text-xs text-slate-300">
-            Replaces: Static Web Forms & Missed-Call Revenue Leakage
-          </div>
+          <div class="text-[11px] font-mono text-emerald-500/70 pt-5 border-t border-slate-800/80 uppercase tracking-widest">Stack: PRM Drift Auditing</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Interactive Payroll-to-Pipeline ROI & Architecture Simulator -->
-  <section id="simulator" class="py-20 px-6 border-b border-slate-800/80">
+  <section id="simulator" class="py-32 px-6 border-b border-slate-800/60 bg-[#080C14]/50">
     <div class="max-w-7xl mx-auto">
-      <div class="grid lg:grid-cols-12 gap-8 items-center">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
         <!-- Left: Interactive Controls -->
-        <div class="lg:col-span-6 p-8 rounded-2xl bg-[#0D1322] border border-slate-800">
-          <div class="text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">// INTERACTIVE TELEMETRY & ROI SIMULATOR</div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">Calculate Your Payroll-to-Pipeline Arbitrage</h2>
-          <p class="text-slate-400 text-sm mb-6">Adjust the sliders to model how Isaac Sovereign compresses manual operations overhead and outputs deterministic JSON payloads into your CRM.</p>
+        <div class="lg:col-span-5 p-10 rounded-xl bg-[#0A101C] border border-slate-800 shadow-2xl">
+          <div class="text-emerald-500 font-mono text-[11px] uppercase tracking-widest mb-4">// INTERACTIVE TELEMETRY</div>
+          <h2 class="text-3xl font-bold text-white mb-4">Model Your Pipeline Arbitrage</h2>
+          <p class="text-slate-400 text-sm mb-10 font-light">Adjust the variables to model how Isaac Sovereign compresses manual operations overhead and outputs deterministic, agentic JSON payloads into your CRM.</p>
 
-          <div class="space-y-6">
+          <div class="space-y-8">
             <div>
-              <label class="block text-xs font-mono text-slate-300 uppercase mb-2">Select Operational Workflow</label>
-              <select id="workflowSelect" onchange="updateSimulation()" class="w-full p-3 rounded-lg bg-slate-950 border border-slate-700 text-white text-sm font-medium focus:outline-none focus:border-emerald-400">
-                <option value="logistics">3PL / Freight: Carrier Packet & Rate-Con Triage</option>
-                <option value="legal">Law Firm: 24/7 Claimant Intake & Medical Record Triage</option>
-                <option value="commercial">Commercial Roofing / Fleet: High-Ticket Scope Qualification</option>
+              <label class="block text-[11px] font-mono text-slate-500 uppercase tracking-widest mb-3">Select Operational Workflow</label>
+              <select id="workflowSelect" onchange="updateSimulation()" class="w-full p-4 rounded bg-slate-900 border border-slate-700 text-white text-sm font-medium focus:outline-none focus:border-emerald-500 transition appearance-none">
+                <option value="logistics">3PL / Freight: Carrier Packet Triage</option>
+                <option value="legal">Law Firm: 24/7 Claimant Intake</option>
+                <option value="commercial">Commercial Services: Scope Qualification</option>
               </select>
             </div>
 
             <div>
-              <div class="flex justify-between text-sm mb-2">
-                <span class="text-slate-300 font-medium">Admin / Ops Staff Assigned to Task</span>
-                <span id="staffVal" class="font-mono font-bold text-emerald-400">2 FTEs</span>
+              <div class="flex justify-between text-sm mb-3">
+                <span class="text-slate-400">Ops Staff Assigned to Task</span>
+                <span id="staffVal" class="font-mono font-bold text-white">2 FTEs</span>
               </div>
-              <input id="staffInput" type="range" min="1" max="10" value="2" oninput="updateSimulation()" class="w-full accent-emerald-400 cursor-pointer" />
+              <input id="staffInput" type="range" min="1" max="10" value="2" oninput="updateSimulation()" class="w-full accent-emerald-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg appearance-none" />
             </div>
 
             <div>
-              <div class="flex justify-between text-sm mb-2">
-                <span class="text-slate-300 font-medium">Fully Burdened Annual Cost per Role (Salary + Benefits)</span>
-                <span id="salaryVal" class="font-mono font-bold text-emerald-400">$75,000 / yr</span>
+              <div class="flex justify-between text-sm mb-3">
+                <span class="text-slate-400">Fully Burdened Annual Cost</span>
+                <span id="salaryVal" class="font-mono font-bold text-white">$75,000 / yr</span>
               </div>
-              <input id="salaryInput" type="range" min="45000" max="130000" step="5000" value="75000" oninput="updateSimulation()" class="w-full accent-emerald-400 cursor-pointer" />
+              <input id="salaryInput" type="range" min="45000" max="130000" step="5000" value="75000" oninput="updateSimulation()" class="w-full accent-emerald-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg appearance-none" />
             </div>
 
-            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800">
-              <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                <div class="text-xs text-slate-400">Current Annual Payroll Burn</div>
-                <div id="burnOutput" class="text-xl sm:text-2xl font-extrabold text-white font-mono mt-1">$150,000/yr</div>
+            <div class="grid grid-cols-2 gap-5 pt-8 border-t border-slate-800">
+              <div class="p-5 rounded-lg bg-slate-900 border border-slate-800">
+                <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Current Payroll Burn</div>
+                <div id="burnOutput" class="text-2xl font-bold text-white mt-2 font-mono">$150,000</div>
               </div>
-              <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
-                <div class="text-xs text-emerald-300">Projected Net Annual Savings (80% Automation)</div>
-                <div id="savingsOutput" class="text-xl sm:text-2xl font-extrabold text-emerald-400 font-mono mt-1">$120,000/yr</div>
+              <div class="p-5 rounded-lg bg-emerald-900/10 border border-emerald-500/30">
+                <div class="text-[10px] font-mono text-emerald-500 uppercase tracking-widest">Projected Net Savings</div>
+                <div id="savingsOutput" class="text-2xl font-bold text-emerald-400 mt-2 font-mono">$120,000</div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Right: Live Deterministic Payload Terminal -->
-        <div class="lg:col-span-6 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden shadow-2xl">
-          <div class="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
-              <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
-              <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-              <span class="ml-2 text-xs font-mono text-slate-400">triage_packet_stream.xml → webhook_crm.json</span>
+        <div class="lg:col-span-7 rounded-xl bg-[#020408] border border-slate-800 overflow-hidden shadow-2xl flex flex-col h-full min-h-[500px]">
+          <div class="px-6 py-4 bg-[#060A11] border-b border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <span class="w-3 h-3 rounded-full bg-slate-700"></span>
+              <span class="w-3 h-3 rounded-full bg-slate-700"></span>
+              <span class="w-3 h-3 rounded-full bg-slate-700"></span>
+              <span class="ml-4 text-[12px] font-mono text-slate-500">isaac_sovereign_agent_v1.json</span>
             </div>
-            <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">LATENCY: 1.42s</span>
+            <span class="text-[10px] font-mono text-emerald-500 uppercase tracking-widest bg-emerald-500/10 px-2 py-1 rounded">Latency: 0.84s</span>
           </div>
-          <pre id="jsonTerminal" class="p-6 text-xs sm:text-sm font-mono text-emerald-300 overflow-x-auto leading-relaxed"></pre>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Unified Tri-Layer Enterprise Engagement Model -->
-  <section id="engagement" class="py-20 px-6 border-b border-slate-800/80 bg-slate-950/40">
-    <div class="max-w-7xl mx-auto">
-      <div class="max-w-3xl mb-14">
-        <div class="text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">// TRANSPARENT ENTERPRISE ARCHITECTURE</div>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Unified Tri-Layer Deployment Model</h2>
-        <p class="text-slate-400">Every engagement begins with a Paid Architectural Diagnostic & 30-Day Telemetry Baseline—100% credited toward your turnkey production build if we move forward together.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-8 rounded-2xl bg-[#0D1322] border border-slate-800 flex flex-col justify-between">
-          <div>
-            <div class="text-xs font-mono text-slate-400 uppercase">Layer 01 // Foundation</div>
-            <h3 class="text-2xl font-bold text-white mt-2 mb-2">Paid Diagnostic & Turnkey Build</h3>
-            <div class="text-emerald-400 font-mono text-lg font-bold mb-4">$7,500 – $20,000 Diagnostic</div>
-            <p class="text-slate-400 text-sm mb-6">
-              Full audit of your current intake/ops bottlenecks, 30-day baseline telemetry snapshot, and custom architecture blueprint. <strong>100% of your diagnostic fee is credited toward the turnkey production build ($45K–$120K scope).</strong>
-            </p>
-          </div>
-          <div class="text-xs font-mono text-slate-500 pt-4 border-t border-slate-800">Deliverable: Production Pipeline in 14–21 Days</div>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-[#0D1322] border-2 border-emerald-500/60 flex flex-col justify-between relative shadow-xl shadow-emerald-500/10">
-          <div>
-            <div class="text-xs font-mono text-emerald-400 uppercase">Layer 02 // Governance</div>
-            <h3 class="text-2xl font-bold text-white mt-2 mb-2">Continuous Drift & RAG Retainer</h3>
-            <div class="text-emerald-400 font-mono text-lg font-bold mb-4">$5,000 – $10,000 / month</div>
-            <p class="text-slate-400 text-sm mb-6">
-              Ongoing vector index maintenance, prompt regression testing, Process-Supervised Reward Model (PRM) drift prevention, API token FinOps optimization, and priority SLA engineering support.
-            </p>
-          </div>
-          <div class="text-xs font-mono text-emerald-400 pt-4 border-t border-slate-800">Zero Unmonitored Model Updates</div>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-[#0D1322] border border-slate-800 flex flex-col justify-between">
-          <div>
-            <div class="text-xs font-mono text-cyan-400 uppercase">Layer 03 // Aligned Incentives</div>
-            <h3 class="text-2xl font-bold text-white mt-2 mb-2">Verified SLA Velocity & Gainshare</h3>
-            <div class="text-cyan-400 font-mono text-lg font-bold mb-4">Performance-Aligned Milestones</div>
-            <p class="text-slate-400 text-sm mb-6">
-              We tie our upside directly to verified operational compression (>70% SLA cycle reduction) and net-new captured pipeline verified against your pre-deployment telemetry baseline.
-            </p>
-          </div>
-          <div class="text-xs font-mono text-slate-500 pt-4 border-t border-slate-800">Stamped via `"processed_by": "isaac_sovereign_node"`</div>
+          <pre id="jsonTerminal" class="p-8 text-[13px] font-mono text-slate-300 overflow-y-auto leading-relaxed flex-grow"></pre>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Direct Founder CTA -->
-  <section class="py-20 px-6">
-    <div class="max-w-4xl mx-auto p-10 sm:p-12 rounded-3xl bg-gradient-to-br from-slate-900 via-[#0D1322] to-slate-950 border border-emerald-500/30 text-center">
-      <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-3">// ZERO SALES FLUFF. ARCHITECT-TO-EXECUTIVE.</div>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Want to See How We'd Automate Your Biggest Ops Bottleneck?</h2>
-      <p class="text-slate-300 max-w-2xl mx-auto mb-8">
+  <section class="py-32 px-6 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/40 via-[#020408] to-[#020408]">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="text-[11px] font-mono text-emerald-500 uppercase tracking-widest mb-6">// ZERO SALES FLUFF. ARCHITECT-TO-EXECUTIVE.</div>
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-8 tracking-tight">Ready to Audit Your Pipeline?</h2>
+      <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-12 font-light leading-relaxed">
         Send over a redacted sample of the carrier packet, intake form, or CRM workflow your team is manually keying in every day. Principal Architect <strong>Wes Isaac</strong> will reply with a custom 3-point plain-text architectural brief showing how we automate 80% of the flow.
       </p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="mailto:wes@isaacsovereign.com?subject=3-Point%20Architectural%20Brief%20Request&body=Hey%20Wes%2C%0A%0AWe%27d%20like%20to%20see%20a%203-point%20plain-text%20architectural%20brief%20for%20automating%20our%20workflow.%20Here%20is%20our%20current%20bottleneck%3A%0A%0A" onclick="copyEmail(event)" class="px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-base transition shadow-lg shadow-emerald-500/25">
+      <div class="flex flex-col sm:flex-row justify-center gap-6">
+        <a href="mailto:wes@isaacsovereign.com?subject=3-Point%20Architectural%20Brief%20Request" onclick="copyEmail(event)" class="px-10 py-5 rounded bg-white hover:bg-slate-200 text-slate-950 font-bold text-[14px] uppercase tracking-widest transition shadow-[0_0_30px_rgba(255,255,255,0.15)]">
           Email Wes Directly: wes@isaacsovereign.com
         </a>
       </div>
-      <p class="text-xs font-mono text-slate-500 mt-6">
-        Isaac Sovereign Architecture · North Florida (Orange Park, FL) · © 2026 Isaac Sovereign. All rights reserved.
+      <p class="text-[11px] font-mono text-slate-600 mt-16 tracking-widest uppercase">
+        Isaac Sovereign Architecture · North Florida · © 2026
       </p>
     </div>
   </section>
 
   <!-- Interactive Simulator & Utility Script -->
   <script>
-    // Copy-to-Clipboard Email Fallback Function
     function copyEmail(e) {
       e.preventDefault();
       navigator.clipboard.writeText('wes@isaacsovereign.com').then(() => {
         const toast = document.createElement('div');
-        toast.textContent = 'Copied Wes\'s direct email (wes@isaacsovereign.com) to clipboard!';
-        toast.style.cssText = 'position:fixed; bottom:20px; right:20px; background:#10B981; color:#060911; padding:12px 20px; border-radius:8px; font-weight:bold; font-family:Inter,sans-serif; z-index:9999; box-shadow:0 10px 25px rgba(0,0,0,0.5);';
+        toast.textContent = 'Copied Wes\'s direct email (wes@isaacsovereign.com) to clipboard.';
+        toast.style.cssText = 'position:fixed; bottom:24px; right:24px; background:#10B981; color:#fff; padding:16px 24px; border-radius:4px; font-weight:600; font-family:Inter,sans-serif; font-size:14px; z-index:9999; box-shadow:0 10px 25px rgba(0,0,0,0.5);';
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 4000);
       });
@@ -387,9 +298,11 @@
 
     const payloads = {
       logistics: {
-        workflow: "3PL_CARRIER_PACKET_AND_RATECON_TRIAGE",
+        workflow: "3PL_CARRIER_PACKET_AGENTIC_TRIAGE",
         source_document: "inbound_carrier_packet_MC94821.pdf",
-        validation: {
+        agentic_confidence_score: 0.98,
+        explainable_rationale: "Validated against FMCSA active authority database and verified 30-day PRM drift baseline. Zero anomalies detected.",
+        validation_schema: {
           mc_authority_status: "ACTIVE_VERIFIED",
           cargo_insurance_min_100k: true,
           w9_tin_match: true,
@@ -402,19 +315,23 @@
       legal: {
         workflow: "LEGAL_CLAIMANT_INTAKE_AND_CHRONOLOGY",
         source_channel: "after_hours_web_voice_agent",
+        agentic_confidence_score: 0.95,
+        explainable_rationale: "Statute of limitations confirmed via cross-reference with FL state guidelines. Medical narrative indicates clear liability.",
         triage_packet: {
           incident_category: "COMMERCIAL_MVA_TIER_1",
           statute_of_limitations_valid: true,
           liability_clarity_score: 0.94,
           medical_treatment_verified: "SURGICAL_RECOMMENDATION"
         },
-        crm_action: "CLIO_MATTER_CREATED_AND_RETainer_SENT",
+        crm_action: "CLIO_MATTER_CREATED_AND_RETAINER_SENT",
         human_escalation_required: false,
         processed_by: "isaac_sovereign_node"
       },
       commercial: {
-        workflow: "COMMERCIAL_DESIGN_BUILD_SCOPE_QUALIFIER",
+        workflow: "COMMERCIAL_SERVICES_SCOPE_QUALIFIER",
         source_channel: "dynamic_conversational_intake",
+        agentic_confidence_score: 0.97,
+        explainable_rationale: "Decision maker identity verified via LinkedIn API. Budget parameters align with Tier 1 commercial routing logic.",
         qualification_schema: {
           property_type: "INDUSTRIAL_WAREHOUSE_65K_SQFT",
           service_scope: "TPO_MEMBRANE_REPLACEMENT",
@@ -436,8 +353,8 @@
 
       document.getElementById('staffVal').textContent = staff + (staff === 1 ? ' FTE' : ' FTEs');
       document.getElementById('salaryVal').textContent = '$' + salary.toLocaleString() + ' / yr';
-      document.getElementById('burnOutput').textContent = '$' + totalBurn.toLocaleString() + '/yr';
-      document.getElementById('savingsOutput').textContent = '$' + netSavings.toLocaleString() + '/yr';
+      document.getElementById('burnOutput').textContent = '$' + totalBurn.toLocaleString();
+      document.getElementById('savingsOutput').textContent = '$' + netSavings.toLocaleString();
 
       const outputObj = {
         timestamp_utc: new Date().toISOString(),
@@ -447,34 +364,19 @@
           annualized_payroll_arbitrage_usd: netSavings
         }
       };
-      document.getElementById('jsonTerminal').textContent = JSON.stringify(outputObj, null, 2);
+      
+      const jsonStr = JSON.stringify(outputObj, null, 2);
+      // Modern 2026 Syntax Highlighting Simulation
+      const highlighted = jsonStr
+        .replace(/"(.*?)":/g, '<span class="text-emerald-400 font-semibold">"$1"</span>:')
+        .replace(/true|false/g, '<span class="text-cyan-400">$&</span>')
+        .replace(/: "(.*?)"/g, ': <span class="text-slate-300">"$1"</span>')
+        .replace(/: (\d+\.?\d*)/g, ': <span class="text-white font-bold">$1</span>');
+        
+      document.getElementById('jsonTerminal').innerHTML = highlighted;
     }
 
     updateSimulation();
-
-    // Dynamic URL Parameter Personalization
-    window.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const clientParam = urlParams.get('client');
-      const verticalParam = urlParams.get('vertical');
-      
-      if (clientParam) {
-        const nodeStatusEl = document.querySelector('.border-b.bg-slate-950\\/90 .flex.items-center.gap-2 span:nth-child(2)');
-        if (nodeStatusEl) {
-          nodeStatusEl.innerHTML = `TARGET ACCOUNT: <strong class="text-emerald-400">${clientParam.toUpperCase()}</strong> // `"processed_by": "isaac_sovereign_node"``;
-        }
-      }
-      
-      if (verticalParam && document.getElementById('workflowSelect')) {
-        const selectEl = document.getElementById('workflowSelect');
-        if (verticalParam === 'logistics' || verticalParam === 'legal' || verticalParam === 'commercial') {
-          selectEl.value = verticalParam;
-          if (typeof updateSimulation === 'function') {
-            updateSimulation();
-          }
-        }
-      }
-    });
   </script>
 </body>
 </html>
