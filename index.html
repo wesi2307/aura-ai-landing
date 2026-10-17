@@ -174,9 +174,7 @@
       <!-- Left: Custom Vector SVG Sovereign Crest + Stacked Brand Lockup -->
       <a href="#" class="flex items-center gap-3.5 shrink-0 group focus:outline-none">
         <div class="relative w-11 h-11 rounded-xl bg-[#070B14] border border-white/[0.12] group-hover:border-emerald-500/60 flex items-center justify-center shadow-lg shadow-emerald-500/10 group-hover:shadow-emerald-500/25 transition duration-300 overflow-hidden">
-          <!-- Subtle internal ambient glow -->
           <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/15 via-transparent to-cyan-500/15 opacity-80 group-hover:opacity-100 transition"></div>
-          <!-- Custom Isometric Hex-Shield & Neural Node "IS" Vector Emblem -->
           <svg class="w-8 h-8 relative z-10" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="crestGrad" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
@@ -185,15 +183,10 @@
                 <stop offset="100%" stop-color="#06B6D4" />
               </linearGradient>
             </defs>
-            <!-- Outer Isometric Sovereign Hex-Shield -->
             <path d="M32 5L55 18.2V45.8L32 59L9 45.8V18.2L32 5Z" stroke="url(#crestGrad)" stroke-width="2.5" stroke-opacity="0.85" fill="rgba(16, 185, 129, 0.04)" />
-            <!-- Inner Architectural Corner Brackets -->
             <path d="M32 11L49 20.8V43.2L32 53L15 43.2V20.8L32 11Z" stroke="#1E293B" stroke-width="1" stroke-dasharray="3 3" />
-            <!-- The "I" Sovereign Pillar (Left Vertical Spine) -->
             <path d="M23 19V45" stroke="#F8FAFC" stroke-width="4" stroke-linecap="round" />
-            <!-- The "S" Deterministic Routing Circuit (Right Interlocked Path) -->
             <path d="M42 20H30C28.8954 20 28 20.8954 28 22V29.5C28 30.6046 28.8954 31.5 30 31.5H40C41.1046 31.5 42 32.3954 42 33.5V42C42 43.1046 41.1046 44 40 44H28" stroke="url(#crestGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-            <!-- Cryptographic Telemetry Nodes -->
             <circle cx="23" cy="19" r="2.8" fill="#10B981" />
             <circle cx="23" cy="45" r="2.8" fill="#06B6D4" />
             <circle cx="42" cy="20" r="2.5" fill="#F8FAFC" />
@@ -211,25 +204,16 @@
         </div>
       </a>
 
-      <!-- Center: Floating Glass Pill Nav (Desktop Only, Zero Wrap) -->
+      <!-- Center: Floating Glass Pill Nav -->
       <nav class="hidden lg:flex items-center gap-1 px-2 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] shadow-inner shrink-0">
-        <a href="#architecture" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">
-          Bento Architecture
-        </a>
-        <a href="#verticals" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">
-          Industry Verticals
-        </a>
-        <a href="#simulator" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">
-          Live Pipeline Trace
-        </a>
-        <a href="#engagement" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">
-          Engagement Model
-        </a>
+        <a href="#architecture" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">Bento Architecture</a>
+        <a href="#verticals" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">Industry Verticals</a>
+        <a href="#simulator" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">Live Pipeline Trace</a>
+        <a href="#engagement" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">Engagement Model</a>
       </nav>
 
       <!-- Right: Command Palette Trigger + Primary CTA + Mobile Hamburger -->
       <div class="flex items-center gap-2.5 shrink-0">
-        <!-- 2026 Command Bar Trigger (Ctrl+K) -->
         <button onclick="toggleCommandModal()" title="Open Executive Command Bar (Ctrl+K)" class="hidden xl:inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.1] text-slate-400 hover:text-white text-xs font-mono transition">
           <span>Command</span>
           <kbd class="px-1.5 py-0.5 text-[10px] rounded bg-white/[0.06] text-emerald-400 border border-white/[0.08]">Ctrl K</kbd>
@@ -240,14 +224,9 @@
           <span class="font-mono text-xs">→</span>
         </a>
 
-        <!-- Mobile Hamburger Button (< 1024px) -->
         <button id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="lg:hidden p-2.5 rounded-lg bg-white/[0.04] border border-white/[0.1] text-slate-200 hover:text-white hover:border-emerald-500/40 transition">
-          <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
+          <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
       </div>
     </div>
@@ -267,24 +246,17 @@
   <!-- Hero Section -->
   <section class="relative ambient-glow pt-16 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-6 border-b border-white/[0.07]">
     <div class="max-w-5xl mx-auto text-center">
-      
-      <!-- Eyebrow Pill -->
       <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/[0.07] text-emerald-300 text-[11px] font-mono mb-8 tracking-wider uppercase shadow-sm">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
         <span>Deterministic Multi-LLM &amp; Agentic Pipeline Engineering</span>
       </div>
-
-      <!-- Fluid Clamp Headline -->
       <h1 class="hero-title font-extrabold text-white mb-6 max-w-4xl mx-auto">
         Stop Burning Payroll on <br class="hidden sm:inline" />
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">Manual Ops &amp; Static Intake.</span>
       </h1>
-
       <p class="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10 font-normal">
         We don't build fragile demo chatbots. <strong>Isaac Sovereign Architecture</strong> engineers fault-tolerant backend middleware that automates <span class="text-white font-semibold">80% of carrier compliance, legal intake triage, and high-ticket CRM routing</span>—with zero public data retention.
       </p>
-
-      <!-- Primary Hero CTAs -->
       <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3.5 max-w-xl mx-auto">
         <a href="#simulator" onclick="setTimeout(runPipelineTrace, 400)" class="px-7 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-extrabold text-sm tracking-wide transition shadow-xl shadow-emerald-500/20 text-center">
           ▶ Run Live Pipeline &amp; ROI Simulator
@@ -293,8 +265,6 @@
           wes@isaacsovereign.com
         </a>
       </div>
-
-      <!-- Executive Proof Metrics Bar -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5 mt-16 sm:mt-20 pt-10 border-t border-white/[0.08] text-left">
         <div class="bento-card p-5 rounded-2xl">
           <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">&gt;70%</div>
@@ -313,12 +283,8 @@
           <div class="text-xs text-slate-400 mt-1.5 leading-snug">Turnkey Production Deployment Inside Your Existing Stack</div>
         </div>
       </div>
-
-      <!-- 2026 Enterprise Ecosystem Compatibility Bar -->
       <div class="mt-12 pt-8 border-t border-white/[0.05]">
-        <div class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.25em] mb-4">
-          NATIVE ZERO-RETENTION ORCHESTRATION ACROSS ENTERPRISE INFRASTRUCTURE
-        </div>
+        <div class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.25em] mb-4">NATIVE ZERO-RETENTION ORCHESTRATION ACROSS ENTERPRISE INFRASTRUCTURE</div>
         <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-xs font-mono text-slate-400 opacity-80">
           <span class="hover:text-emerald-400 transition">◆ ANTHROPIC CLAUDE ENTERPRISE</span>
           <span class="hover:text-emerald-400 transition">◆ GOOGLE GEMINI PRO</span>
@@ -341,11 +307,7 @@
           Generic AI agencies connect a raw prompt to your forms and hope it doesn't hallucinate. We deploy deterministic, multi-model pipelines with strict schema validation, PII sanitization, and cryptographic attribution.
         </p>
       </div>
-
-      <!-- 12-Column Asymmetric Bento Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-        
-        <!-- Bento Cell 1 (Span 7) -->
         <div class="lg:col-span-7 bento-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between gap-2 mb-5">
@@ -365,8 +327,6 @@
             <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">3. Verified CRM Sync</span>
           </div>
         </div>
-
-        <!-- Bento Cell 2 (Span 5) -->
         <div class="lg:col-span-5 bento-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between gap-2 mb-5">
@@ -384,8 +344,6 @@
             <div class="flex justify-between"><span class="text-slate-500">HITL_ESCALATION_QUEUE:</span><span class="text-cyan-400 font-semibold">ACTIVE</span></div>
           </div>
         </div>
-
-        <!-- Bento Cell 3 (Span 5) -->
         <div class="lg:col-span-5 bento-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between gap-2 mb-5">
@@ -397,12 +355,8 @@
               Your staff never has to learn a new dashboard. Our event-driven webhooks wire directly into your existing TMS, HubSpot, Salesforce, Clio, ServiceTitan, or Microsoft 365 environment.
             </p>
           </div>
-          <div class="text-xs font-mono text-slate-400 pt-4 border-t border-white/[0.07]">
-            Connectors: Make.com Enterprise · REST Webhooks · Custom Workers
-          </div>
+          <div class="text-xs font-mono text-slate-400 pt-4 border-t border-white/[0.07]">Connectors: Make.com Enterprise · REST Webhooks · Custom Workers</div>
         </div>
-
-        <!-- Bento Cell 4 (Span 7) -->
         <div class="lg:col-span-7 bento-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between gap-2 mb-5">
@@ -419,7 +373,6 @@
             <span>✓ Monthly Token FinOps Ledger</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -434,7 +387,6 @@
           If you are posting $55K–$95K W-2 job openings just to keep up with manual document entry, intake triage, or dispatch coordination, we automate 80% of that bottleneck in weeks.
         </p>
       </div>
-
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bento-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between">
           <div>
@@ -447,11 +399,8 @@
               Eliminate manual COI insurance verification, W-9 TIN matching, FMCSA authority checks, and repetitive track-and-trace calls. Incoming carrier PDFs are validated and synced to your TMS automatically.
             </p>
           </div>
-          <div class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] font-mono text-xs text-emerald-300">
-            Replaces: 2–3 Full-Time Track &amp; Trace / Billing Coordinators
-          </div>
+          <div class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] font-mono text-xs text-emerald-300">Replaces: 2–3 Full-Time Track &amp; Trace / Billing Coordinators</div>
         </div>
-
         <div class="bento-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
@@ -463,11 +412,8 @@
               Instant 24/7 claimant qualification, statute-of-limitations verification, conflict pre-checks, and zero-hallucination medical record summarization with page-level citation anchoring into Clio or Filevine.
             </p>
           </div>
-          <div class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] font-mono text-xs text-cyan-300">
-            Replaces: After-Hours Answering Services &amp; Intake Lag
-          </div>
+          <div class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] font-mono text-xs text-cyan-300">Replaces: After-Hours Answering Services &amp; Intake Lag</div>
         </div>
-
         <div class="bento-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
@@ -479,9 +425,7 @@
               Stop losing six-figure commercial bids and white-label IT tickets to static forms. Agentic qualifiers verify facility size, scope, and decision-maker authority 24/7 and book straight into ServiceTitan or HubSpot.
             </p>
           </div>
-          <div class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] font-mono text-xs text-emerald-300">
-            Replaces: Static Web Forms &amp; Missed-Call Leakage
-          </div>
+          <div class="p-3.5 rounded-xl bg-[#030509] border border-white/[0.07] font-mono text-xs text-emerald-300">Replaces: Static Web Forms &amp; Missed-Call Leakage</div>
         </div>
       </div>
     </div>
@@ -491,7 +435,7 @@
   <section id="simulator" class="py-20 sm:py-28 px-4 sm:px-6 border-b border-white/[0.07]">
     <div class="max-w-7xl mx-auto">
       
-      <!-- Live 4-Node Execution Stepper (2026 Interactive Product Proof) -->
+      <!-- Live 4-Node Execution Stepper -->
       <div class="mb-8 p-5 rounded-2xl bg-[#070B14] border border-white/[0.08]">
         <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
           <div class="flex items-center gap-2.5">
@@ -523,43 +467,36 @@
       </div>
 
       <div class="grid lg:grid-cols-12 gap-8 items-stretch">
-        <!-- Left: Interactive Controls (5 Cols) -->
         <div class="lg:col-span-5 bento-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between">
           <div>
             <div class="text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">03 // INTERACTIVE TELEMETRY SIMULATOR</div>
             <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">Calculate Your Payroll-to-Pipeline Arbitrage</h2>
-            <p class="text-slate-400 text-sm mb-7 leading-relaxed">
-              Select a vertical and adjust the sliders to model your annual overhead compression and inspect the exact JSON schema written to your CRM.
-            </p>
-
+            <p class="text-slate-400 text-sm mb-7 leading-relaxed">Select a vertical and adjust the sliders to model your annual overhead compression and inspect the exact JSON schema written to your CRM.</p>
             <div class="space-y-6">
               <div>
                 <label for="workflowSelect" class="block text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-2">Select Operational Workflow</label>
-                <select id="workflowSelect" onchange="updateSimulation()" class="w-full p-3.5 rounded-xl bg-[#030509] border border-white/[0.12] text-white text-sm font-medium focus:outline-none focus:border-emerald-400 transition">
+                <select id="workflowSelect" onchange="updateSimulation(false)" class="w-full p-3.5 rounded-xl bg-[#030509] border border-white/[0.12] text-white text-sm font-medium focus:outline-none focus:border-emerald-400 transition">
                   <option value="logistics">3PL / Freight: Carrier Packet &amp; Rate-Con Triage</option>
                   <option value="legal">Law Firm: 24/7 Claimant Intake &amp; Medical Triage</option>
                   <option value="commercial">Commercial / MSP: High-Ticket Scope Qualification</option>
                 </select>
               </div>
-
               <div>
                 <div class="flex justify-between text-sm mb-2">
                   <span class="text-slate-300 font-medium">Admin / Ops Staff Assigned to Task</span>
                   <span id="staffVal" class="font-mono font-bold text-emerald-400">2 FTEs</span>
                 </div>
-                <input id="staffInput" type="range" min="1" max="10" value="2" oninput="updateSimulation()" class="w-full" />
+                <input id="staffInput" type="range" min="1" max="10" value="2" oninput="updateSimulation(false)" class="w-full" />
               </div>
-
               <div>
                 <div class="flex justify-between text-sm mb-2">
                   <span class="text-slate-300 font-medium">Fully Burdened Annual Cost per Role</span>
                   <span id="salaryVal" class="font-mono font-bold text-emerald-400">$75,000 / yr</span>
                 </div>
-                <input id="salaryInput" type="range" min="45000" max="130000" step="5000" value="75000" oninput="updateSimulation()" class="w-full" />
+                <input id="salaryInput" type="range" min="45000" max="130000" step="5000" value="75000" oninput="updateSimulation(false)" class="w-full" />
               </div>
             </div>
           </div>
-
           <div class="grid grid-cols-2 gap-3.5 pt-6 mt-6 border-t border-white/[0.08]">
             <div class="p-4 rounded-xl bg-[#030509] border border-white/[0.07]">
               <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Current Annual Burn</div>
@@ -572,7 +509,6 @@
           </div>
         </div>
 
-        <!-- Right: Live Deterministic Payload Terminal (7 Cols) -->
         <div class="lg:col-span-7 rounded-2xl bg-[#020306] border border-white/[0.1] overflow-hidden shadow-2xl flex flex-col justify-between">
           <div class="px-5 py-3.5 bg-[#070B14] border-b border-white/[0.08] flex flex-wrap items-center justify-between gap-2">
             <div class="flex items-center gap-2">
@@ -583,14 +519,11 @@
             </div>
             <div class="flex items-center gap-2.5">
               <span id="latencyBadge" class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded">STATUS: VERIFIED (0.84s)</span>
-              <button onclick="copyPayload()" class="text-[11px] font-mono text-slate-300 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.1] px-2.5 py-0.5 rounded transition">
-                Copy JSON
-              </button>
+              <button onclick="copyPayload()" class="text-[11px] font-mono text-slate-300 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.1] px-2.5 py-0.5 rounded transition">Copy JSON</button>
             </div>
           </div>
           <pre id="jsonTerminal" class="p-6 sm:p-8 text-xs sm:text-[13px] font-mono text-slate-300 overflow-x-auto leading-relaxed flex-grow"></pre>
         </div>
-
       </div>
     </div>
   </section>
@@ -605,7 +538,6 @@
           Every engagement begins with a Paid Architectural Diagnostic &amp; 30-Day Telemetry Baseline—<strong>100% credited toward your turnkey production build</strong> when we move forward together.
         </p>
       </div>
-
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bento-card rounded-2xl p-8 flex flex-col justify-between">
           <div>
@@ -616,11 +548,8 @@
               Full audit of your current intake/ops bottlenecks, 30-day baseline telemetry snapshot, and custom architecture blueprint. <strong>100% of your diagnostic fee is credited toward the turnkey production build ($45K–$120K scope).</strong>
             </p>
           </div>
-          <div class="text-xs font-mono text-slate-400 pt-4 border-t border-white/[0.08]">
-            Deliverable: Production Pipeline in 14–21 Days
-          </div>
+          <div class="text-xs font-mono text-slate-400 pt-4 border-t border-white/[0.08]">Deliverable: Production Pipeline in 14–21 Days</div>
         </div>
-
         <div class="bento-card rounded-2xl p-8 border-emerald-500/50 flex flex-col justify-between relative">
           <div>
             <div class="flex items-center justify-between">
@@ -633,11 +562,8 @@
               Ongoing vector index maintenance, prompt regression testing, Process-Supervised Reward Model (PRM) drift prevention, API token FinOps optimization, and priority SLA engineering support.
             </p>
           </div>
-          <div class="text-xs font-mono text-emerald-400 pt-4 border-t border-white/[0.08]">
-            Zero Unmonitored Model Updates
-          </div>
+          <div class="text-xs font-mono text-emerald-400 pt-4 border-t border-white/[0.08]">Zero Unmonitored Model Updates</div>
         </div>
-
         <div class="bento-card rounded-2xl p-8 flex flex-col justify-between">
           <div>
             <div class="text-xs font-mono text-cyan-400 uppercase tracking-wider">Layer 03 // Aligned Incentives</div>
@@ -647,9 +573,7 @@
               We tie our upside directly to verified operational compression (&gt;70% SLA cycle reduction) and net-new captured pipeline verified against your pre-deployment telemetry baseline.
             </p>
           </div>
-          <div class="text-xs font-mono text-slate-400 pt-4 border-t border-white/[0.08]">
-            Stamped via "processed_by": "isaac_sovereign_node"
-          </div>
+          <div class="text-xs font-mono text-slate-400 pt-4 border-t border-white/[0.08]">Stamped via "processed_by": "isaac_sovereign_node"</div>
         </div>
       </div>
     </div>
@@ -702,9 +626,8 @@
     </div>
   </div>
 
-  <!-- Interactive Scripts -->
+  <!-- Interactive Scripts (Argon Logic Architecture) -->
   <script>
-    // 2026 Cursor-Tracked Radial Shader Effect on Bento Cards
     document.querySelectorAll('.bento-card').forEach(card => {
       card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
@@ -730,12 +653,11 @@
       toggleCommandModal();
       const selectEl = document.getElementById('workflowSelect');
       selectEl.value = v;
-      updateSimulation();
+      updateSimulation(false);
       document.getElementById('simulator').scrollIntoView({ behavior: 'smooth' });
-      setTimeout(runPipelineTrace, 500);
+      setTimeout(runPipelineTrace, 600);
     }
 
-    // Keyboard shortcut Ctrl+K or Cmd+K
     window.addEventListener('keydown', e => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
@@ -749,7 +671,7 @@
     function showToast(msg) {
       const toast = document.createElement('div');
       toast.textContent = msg;
-      toast.style.cssText = 'position:fixed; bottom:20px; right:20px; left:20px; max-width:420px; margin-left:auto; background:#10B981; color:#030509; padding:14px 20px; border-radius:10px; font-weight:700; font-family:Inter,sans-serif; font-size:13px; z-index:9999; box-shadow:0 15px 30px rgba(0,0,0,0.6); text-align:center;';
+      toast.style.cssText = 'position:fixed; bottom:24px; right:24px; left:24px; max-width:420px; margin-left:auto; background:#10B981; color:#030509; padding:14px 20px; border-radius:8px; font-weight:700; font-family:Inter,sans-serif; font-size:13px; z-index:9999; box-shadow:0 15px 30px rgba(0,0,0,0.6); text-align:center; border: 1px solid rgba(255,255,255,0.1);';
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 4000);
     }
@@ -812,7 +734,23 @@
 
     let currentJsonRaw = "";
 
-    function updateSimulation() {
+    function animateValue(id, start, end, duration) {
+      const obj = document.getElementById(id);
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = '$' + Math.floor(progress * (end - start) + start).toLocaleString() + '/yr';
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        } else {
+          obj.innerHTML = '$' + end.toLocaleString() + '/yr';
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    function updateSimulation(animateNumbersAndTerminal = false) {
       const wf = document.getElementById('workflowSelect').value;
       const staff = parseInt(document.getElementById('staffInput').value, 10);
       const salary = parseInt(document.getElementById('salaryInput').value, 10);
@@ -821,8 +759,14 @@
 
       document.getElementById('staffVal').textContent = staff + (staff === 1 ? ' FTE' : ' FTEs');
       document.getElementById('salaryVal').textContent = '$' + salary.toLocaleString() + ' / yr';
-      document.getElementById('burnOutput').textContent = '$' + totalBurn.toLocaleString() + '/yr';
-      document.getElementById('savingsOutput').textContent = '$' + netSavings.toLocaleString() + '/yr';
+
+      if (animateNumbersAndTerminal) {
+        animateValue('burnOutput', 0, totalBurn, 1200);
+        animateValue('savingsOutput', 0, netSavings, 1200);
+      } else {
+        document.getElementById('burnOutput').textContent = '$' + totalBurn.toLocaleString() + '/yr';
+        document.getElementById('savingsOutput').textContent = '$' + netSavings.toLocaleString() + '/yr';
+      }
 
       const outputObj = {
         timestamp_utc: new Date().toISOString(),
@@ -841,27 +785,68 @@
         .replace(/: "(.*?)"/g, ': <span class="text-slate-200">"$1"</span>')
         .replace(/: (\d+\.?\d*)/g, ': <span class="text-amber-300 font-bold">$1</span>');
 
-      document.getElementById('jsonTerminal').innerHTML = highlighted;
+      const terminal = document.getElementById('jsonTerminal');
+      
+      if (animateNumbersAndTerminal) {
+        const lines = highlighted.split('\n');
+        terminal.innerHTML = '';
+        let delay = 0;
+        lines.forEach(line => {
+          setTimeout(() => {
+            terminal.innerHTML += line + '\n';
+            terminal.scrollTop = terminal.scrollHeight;
+          }, delay);
+          delay += 25; 
+        });
+      } else {
+        terminal.innerHTML = highlighted;
+      }
     }
 
-    // Live 4-Node Packet Execution Trace Animation
-    function runPipelineTrace() {
+    async function runPipelineTrace() {
       const steps = ['traceStep1', 'traceStep2', 'traceStep3', 'traceStep4'];
       const badge = document.getElementById('latencyBadge');
-      steps.forEach(id => document.getElementById(id).classList.remove('trace-active'));
-      badge.textContent = 'EXECUTING PIPELINE...';
+      const terminal = document.getElementById('jsonTerminal');
+      
+      steps.forEach(id => document.getElementById(id).classList.remove('trace-active', 'bg-emerald-500/10', 'border-emerald-500/30'));
+      terminal.innerHTML = '<span class="text-slate-500 animate-pulse">> AWAITING INBOUND PAYLOAD_STREAM...</span>';
+      badge.textContent = 'STATUS: LISTENING...';
+      badge.className = "text-[11px] font-mono text-slate-400 bg-white/[0.05] border border-white/[0.1] px-2.5 py-0.5 rounded";
 
-      steps.forEach((id, idx) => {
-        setTimeout(() => {
-          steps.forEach(s => document.getElementById(s).classList.remove('trace-active'));
-          document.getElementById(id).classList.add('trace-active');
-          if (idx === steps.length - 1) {
-            updateSimulation();
-            badge.textContent = 'COMMITTED TO CRM (0.84s)';
-            showToast('Live Packet Trace Complete: Schema Validated & Synced (0.84s)');
-          }
-        }, idx * 220);
-      });
+      const executionPhases = [
+        { id: 'traceStep1', delay: 700, status: 'INGESTING_WEBHOOK...', badgeClass: 'text-amber-400 bg-amber-500/10 border-amber-500/20' },
+        { id: 'traceStep2', delay: 850, status: 'REDACTING_PII_DATA...', badgeClass: 'text-amber-400 bg-amber-500/10 border-amber-500/20' },
+        { id: 'traceStep3', delay: 950, status: 'VALIDATING_XML_SCHEMA...', badgeClass: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20' },
+        { id: 'traceStep4', delay: 650, status: 'COMMITTING_TO_CRM...', badge = 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' }
+      ];
+
+      for (let i = 0; i < executionPhases.length; i++) {
+        const phase = executionPhases[i];
+        
+        badge.textContent = `STATUS: ${phase.status}`;
+        badge.className = `text-[11px] font-mono px-2.5 py-0.5 rounded border transition ${phase.badgeClass}`;
+        
+        const currentNode = document.getElementById(phase.id);
+        currentNode.classList.add('trace-active');
+        
+        if (i > 0) {
+          const prevNode = document.getElementById(executionPhases[i-1].id);
+          prevNode.classList.remove('trace-active');
+          prevNode.classList.add('bg-emerald-500/10', 'border-emerald-500/30');
+        }
+
+        await new Promise(resolve => setTimeout(resolve, phase.delay));
+      }
+
+      const finalNode = document.getElementById(executionPhases[3].id);
+      finalNode.classList.remove('trace-active');
+      finalNode.classList.add('bg-emerald-500/10', 'border-emerald-500/30');
+
+      badge.textContent = 'STATUS: VERIFIED (0.84s)';
+      badge.className = "text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded transition";
+      
+      updateSimulation(true);
+      showToast('Live Packet Trace Complete: Schema Validated & Synced (0.84s)');
     }
 
     function copyPayload() {
@@ -872,9 +857,8 @@
       }
     }
 
-    updateSimulation();
+    updateSimulation(false);
 
-    // Dynamic URL Parameter Personalization (?client=Acme&vertical=logistics)
     window.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const clientParam = urlParams.get('client');
@@ -891,7 +875,7 @@
         const selectEl = document.getElementById('workflowSelect');
         if (['logistics', 'legal', 'commercial'].includes(verticalParam.toLowerCase())) {
           selectEl.value = verticalParam.toLowerCase();
-          updateSimulation();
+          updateSimulation(false);
         }
       }
     });
