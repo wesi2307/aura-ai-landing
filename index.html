@@ -6,7 +6,7 @@
   <title>Isaac Sovereign Architecture | Enterprise Agentic Systems & Workflow Infrastructure</title>
   <meta name="description" content="Isaac Sovereign Architecture engineers deterministic multi-LLM pipelines, autonomous intake triage, and zero-retention CRM automation for mid-market Logistics, Legal, and Commercial Operations." />
   
-  <!-- Custom Embedded SVG Favicon (Appears in Browser Tab Immediately) -->
+  <!-- Custom Embedded SVG Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2310B981'/%3E%3Cstop offset='100%25' stop-color='%2306B6D4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23050811'/%3E%3Cpath d='M32 6L54 18.5V45.5L32 58L10 45.5V18.5L32 6Z' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Cpath d='M23 19V45M41 21H29V31H41V43H29' fill='none' stroke='%23F8FAFC' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='23' cy='19' r='3' fill='%2310B981'/%3E%3Ccircle cx='41' cy='43' r='3' fill='%2306B6D4'/%3E%3C/svg%3E" />
 
   <!-- Official Entity JSON-LD Schema -->
@@ -74,8 +74,7 @@
       letter-spacing: -0.025em;
     }
     .ambient-glow {
-      background:
-        radial-gradient(ellipse 80% 50% at 50% -15%, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.05) 45%, transparent 75%);
+      background: radial-gradient(ellipse 80% 50% at 50% -15%, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.05) 45%, transparent 75%);
     }
     .architectural-grid {
       background-size: 56px 56px;
@@ -83,7 +82,6 @@
         linear-gradient(to right, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
     }
-    /* 2026 Cursor-Tracked Shader Bento Card */
     .bento-card {
       position: relative;
       background: linear-gradient(180deg, rgba(13, 19, 34, 0.78) 0%, rgba(8, 12, 21, 0.92) 100%);
@@ -118,7 +116,6 @@
       position: relative;
       z-index: 1;
     }
-    /* Custom Range Slider */
     input[type="range"] {
       -webkit-appearance: none;
       appearance: none;
@@ -137,11 +134,18 @@
       border: 2px solid #030509;
       box-shadow: 0 0 12px rgba(16, 185, 129, 0.65);
     }
-    /* Active Pipeline Step Pulse */
     .trace-active {
       border-color: #10B981 !important;
       background: rgba(16, 185, 129, 0.12) !important;
       box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+    }
+    /* Hide scrollbar for terminal but allow scroll */
+    #jsonTerminal::-webkit-scrollbar {
+      display: none;
+    }
+    #jsonTerminal {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   </style>
 </head>
@@ -167,11 +171,11 @@
     </div>
   </div>
 
-  <!-- Executive Header (With Custom Geometric SVG Sovereign Crest) -->
+  <!-- Executive Header -->
   <header class="sticky top-0 z-50 border-b border-white/[0.08] bg-[#030509]/85 backdrop-blur-xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
       
-      <!-- Left: Custom Vector SVG Sovereign Crest + Stacked Brand Lockup -->
+      <!-- Custom Vector SVG Sovereign Crest + Stacked Brand Lockup -->
       <a href="#" class="flex items-center gap-3.5 shrink-0 group focus:outline-none">
         <div class="relative w-11 h-11 rounded-xl bg-[#070B14] border border-white/[0.12] group-hover:border-emerald-500/60 flex items-center justify-center shadow-lg shadow-emerald-500/10 group-hover:shadow-emerald-500/25 transition duration-300 overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/15 via-transparent to-cyan-500/15 opacity-80 group-hover:opacity-100 transition"></div>
@@ -193,7 +197,6 @@
             <circle cx="28" cy="44" r="2.5" fill="#10B981" />
           </svg>
         </div>
-
         <div class="flex flex-col">
           <div class="font-extrabold tracking-tight text-lg sm:text-xl text-white leading-none whitespace-nowrap">
             ISAAC <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">SOVEREIGN</span>
@@ -204,7 +207,7 @@
         </div>
       </a>
 
-      <!-- Center: Floating Glass Pill Nav -->
+      <!-- Floating Glass Pill Nav -->
       <nav class="hidden lg:flex items-center gap-1 px-2 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] shadow-inner shrink-0">
         <a href="#architecture" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">Bento Architecture</a>
         <a href="#verticals" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">Industry Verticals</a>
@@ -212,18 +215,16 @@
         <a href="#engagement" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] transition whitespace-nowrap">Engagement Model</a>
       </nav>
 
-      <!-- Right: Command Palette Trigger + Primary CTA + Mobile Hamburger -->
+      <!-- Right: Command Palette Trigger + Primary CTA -->
       <div class="flex items-center gap-2.5 shrink-0">
         <button onclick="toggleCommandModal()" title="Open Executive Command Bar (Ctrl+K)" class="hidden xl:inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.1] text-slate-400 hover:text-white text-xs font-mono transition">
           <span>Command</span>
           <kbd class="px-1.5 py-0.5 text-[10px] rounded bg-white/[0.06] text-emerald-400 border border-white/[0.08]">Ctrl K</kbd>
         </button>
-
         <a href="mailto:wes@isaacsovereign.com?subject=Isaac%20Sovereign%203-Point%20Architectural%20Diagnostic" onclick="copyEmail(event)" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white hover:bg-emerald-400 text-slate-950 font-bold text-xs tracking-wide uppercase transition shadow-lg shadow-white/5 whitespace-nowrap">
           <span>Request Diagnostic</span>
           <span class="font-mono text-xs">→</span>
         </a>
-
         <button id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="lg:hidden p-2.5 rounded-lg bg-white/[0.04] border border-white/[0.1] text-slate-200 hover:text-white hover:border-emerald-500/40 transition">
           <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
           <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -522,7 +523,8 @@
               <button onclick="copyPayload()" class="text-[11px] font-mono text-slate-300 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.1] px-2.5 py-0.5 rounded transition">Copy JSON</button>
             </div>
           </div>
-          <pre id="jsonTerminal" class="p-6 sm:p-8 text-xs sm:text-[13px] font-mono text-slate-300 overflow-x-auto leading-relaxed flex-grow"></pre>
+          <!-- Terminal height is fixed so typewriter effect feels authentic -->
+          <pre id="jsonTerminal" class="p-6 sm:p-8 text-xs sm:text-[13px] font-mono text-slate-300 overflow-y-auto leading-relaxed flex-grow h-72 sm:h-96"></pre>
         </div>
       </div>
     </div>
@@ -599,26 +601,26 @@
   </section>
 
   <!-- 2026 Executive Command Palette Modal (Ctrl+K / Cmd+K) -->
-  <div id="commandModal" class="fixed inset-0 z-[100] hidden bg-black/75 backdrop-blur-md flex items-start justify-center pt-24 px-4">
-    <div class="w-full max-w-lg rounded-2xl bg-[#080C15] border border-white/[0.15] shadow-2xl overflow-hidden">
+  <div id="commandModal" class="fixed inset-0 z-[100] hidden bg-[#030509]/80 backdrop-blur-sm flex items-start justify-center pt-24 px-4" aria-live="polite">
+    <div class="w-full max-w-lg rounded-2xl bg-[#080C15] border border-white/[0.15] shadow-2xl overflow-hidden transform transition-all">
       <div class="px-4 py-3 border-b border-white/[0.08] flex items-center justify-between">
         <span class="text-xs font-mono text-emerald-400">ISAAC SOVEREIGN // EXECUTIVE COMMAND BAR</span>
         <button onclick="toggleCommandModal()" class="text-xs font-mono text-slate-400 hover:text-white px-2 py-0.5 rounded bg-white/[0.05]">ESC</button>
       </div>
       <div class="p-3 space-y-1.5 font-mono text-xs">
-        <button onclick="selectCommandVertical('logistics')" class="w-full text-left px-3.5 py-2.5 rounded-lg hover:bg-emerald-500/15 text-slate-200 hover:text-emerald-300 flex justify-between items-center transition">
+        <button onclick="selectCommandVertical('logistics')" class="w-full text-left px-3.5 py-3 rounded-lg hover:bg-emerald-500/15 text-slate-200 hover:text-emerald-300 flex justify-between items-center transition focus:outline-none focus:ring-1 focus:ring-emerald-500">
           <span>▶ Load 3PL / Freight Carrier Packet Schema</span>
           <span class="text-slate-500">Vertical 01</span>
         </button>
-        <button onclick="selectCommandVertical('legal')" class="w-full text-left px-3.5 py-2.5 rounded-lg hover:bg-emerald-500/15 text-slate-200 hover:text-emerald-300 flex justify-between items-center transition">
+        <button onclick="selectCommandVertical('legal')" class="w-full text-left px-3.5 py-3 rounded-lg hover:bg-emerald-500/15 text-slate-200 hover:text-emerald-300 flex justify-between items-center transition focus:outline-none focus:ring-1 focus:ring-emerald-500">
           <span>▶ Load Legal 24/7 Claimant Intake Schema</span>
           <span class="text-slate-500">Vertical 02</span>
         </button>
-        <button onclick="selectCommandVertical('commercial')" class="w-full text-left px-3.5 py-2.5 rounded-lg hover:bg-emerald-500/15 text-slate-200 hover:text-emerald-300 flex justify-between items-center transition">
+        <button onclick="selectCommandVertical('commercial')" class="w-full text-left px-3.5 py-3 rounded-lg hover:bg-emerald-500/15 text-slate-200 hover:text-emerald-300 flex justify-between items-center transition focus:outline-none focus:ring-1 focus:ring-emerald-500">
           <span>▶ Load Commercial / MSP Scope Qualifier Schema</span>
           <span class="text-slate-500">Vertical 03</span>
         </button>
-        <button onclick="toggleCommandModal(); copyEmail(event);" class="w-full text-left px-3.5 py-2.5 rounded-lg hover:bg-cyan-500/15 text-cyan-300 flex justify-between items-center transition border-t border-white/[0.06] mt-2 pt-3">
+        <button onclick="toggleCommandModal(); copyEmail(event);" class="w-full text-left px-3.5 py-3 rounded-lg hover:bg-cyan-500/15 text-cyan-300 flex justify-between items-center transition border-t border-white/[0.06] mt-2 pt-3 focus:outline-none focus:ring-1 focus:ring-cyan-500">
           <span>✉ Copy Principal Architect Email (wes@isaacsovereign.com)</span>
           <span class="text-slate-500">Clipboard</span>
         </button>
@@ -646,7 +648,12 @@
     }
 
     function toggleCommandModal() {
-      document.getElementById('commandModal').classList.toggle('hidden');
+      const modal = document.getElementById('commandModal');
+      modal.classList.toggle('hidden');
+      if (!modal.classList.contains('hidden')) {
+        // Focus trap for accessibility/UX
+        modal.querySelector('button').focus();
+      }
     }
 
     function selectCommandVertical(v) {
@@ -658,12 +665,13 @@
       setTimeout(runPipelineTrace, 600);
     }
 
+    // Keyboard shortcut Ctrl+K or Cmd+K
     window.addEventListener('keydown', e => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         toggleCommandModal();
       }
-      if (e.key === 'Escape') {
+      if (e.key === 'Escape' && !document.getElementById('commandModal').classList.contains('hidden')) {
         document.getElementById('commandModal').classList.add('hidden');
       }
     });
@@ -733,7 +741,9 @@
     };
 
     let currentJsonRaw = "";
+    let typewriterTimeout = null;
 
+    // Mathematical Number Counter Animation
     function animateValue(id, start, end, duration) {
       const obj = document.getElementById(id);
       let startTimestamp = null;
@@ -787,37 +797,50 @@
 
       const terminal = document.getElementById('jsonTerminal');
       
+      // Clear any running typewriter
+      if (typewriterTimeout) clearTimeout(typewriterTimeout);
+
       if (animateNumbersAndTerminal) {
+        // Line-by-line Typewriter Effect
         const lines = highlighted.split('\n');
         terminal.innerHTML = '';
-        let delay = 0;
-        lines.forEach(line => {
-          setTimeout(() => {
-            terminal.innerHTML += line + '\n';
+        let currentLine = 0;
+        
+        function typeLine() {
+          if (currentLine < lines.length) {
+            terminal.innerHTML += lines[currentLine] + '\n';
             terminal.scrollTop = terminal.scrollHeight;
-          }, delay);
-          delay += 25; 
-        });
+            currentLine++;
+            typewriterTimeout = setTimeout(typeLine, 20); // Fast 20ms terminal speed
+          }
+        }
+        typeLine();
       } else {
         terminal.innerHTML = highlighted;
       }
     }
 
+    // Argon-Level Asynchronous Node Execution Trace
     async function runPipelineTrace() {
       const steps = ['traceStep1', 'traceStep2', 'traceStep3', 'traceStep4'];
       const badge = document.getElementById('latencyBadge');
       const terminal = document.getElementById('jsonTerminal');
       
+      // Reset UI for execution
       steps.forEach(id => document.getElementById(id).classList.remove('trace-active', 'bg-emerald-500/10', 'border-emerald-500/30'));
+      
+      if (typewriterTimeout) clearTimeout(typewriterTimeout);
       terminal.innerHTML = '<span class="text-slate-500 animate-pulse">> AWAITING INBOUND PAYLOAD_STREAM...</span>';
+      
       badge.textContent = 'STATUS: LISTENING...';
       badge.className = "text-[11px] font-mono text-slate-400 bg-white/[0.05] border border-white/[0.1] px-2.5 py-0.5 rounded";
 
+      // Execution Delays & Status Mapping (Bug Fixed)
       const executionPhases = [
         { id: 'traceStep1', delay: 700, status: 'INGESTING_WEBHOOK...', badgeClass: 'text-amber-400 bg-amber-500/10 border-amber-500/20' },
         { id: 'traceStep2', delay: 850, status: 'REDACTING_PII_DATA...', badgeClass: 'text-amber-400 bg-amber-500/10 border-amber-500/20' },
         { id: 'traceStep3', delay: 950, status: 'VALIDATING_XML_SCHEMA...', badgeClass: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20' },
-        { id: 'traceStep4', delay: 650, status: 'COMMITTING_TO_CRM...', badge = 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' }
+        { id: 'traceStep4', delay: 650, status: 'COMMITTING_TO_CRM...', badgeClass: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' }
       ];
 
       for (let i = 0; i < executionPhases.length; i++) {
@@ -857,8 +880,10 @@
       }
     }
 
+    // Initialize without animation on first load
     updateSimulation(false);
 
+    // Dynamic URL Parameter Personalization (?client=Acme&vertical=logistics)
     window.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const clientParam = urlParams.get('client');
