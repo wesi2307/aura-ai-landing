@@ -1,3 +1,12 @@
+Here is the complete, updated index.html production code with the dual-extension fallback (vid1.webm.webm and vid1.webm) hardcoded directly into the video engine and the JavaScript loader.
+
+10-Second Execution Steps:
+Open index.html in GitHub and click the Pencil icon (Edit).
+
+Click inside the code editor, press Ctrl + A (Select All), and press Backspace so the editor is 100% empty.
+
+Copy the entire code block below, press Ctrl + V to paste it in, and click the green Commit changes... button.
+
 HTML
 <!DOCTYPE html>
 <html lang="en">
@@ -449,18 +458,21 @@ HTML
 </head>
 <body>
 
-    <!-- 1. MULTI-VIDEO CINEMATIC BACKGROUND STACK -->
+    <!-- 1. MULTI-VIDEO CINEMATIC BACKGROUND STACK (Dual-Extension Fallback) -->
     <div class="video-background-container">
         <!-- Video 1: Fiber Optic Data Tunnel (Active by default) -->
         <video id="vid1" class="bg-video active" autoplay loop muted playsinline preload="auto">
+            <source src="vid1.webm.webm" type="video/webm">
             <source src="vid1.webm" type="video/webm">
         </video>
         <!-- Video 2: PII Sanitization Microchip -->
         <video id="vid2" class="bg-video" autoplay loop muted playsinline preload="auto">
+            <source src="vid2.webm.webm" type="video/webm">
             <source src="vid2.webm" type="video/webm">
         </video>
         <!-- Video 3: Holographic JSON Server Rack -->
         <video id="vid3" class="bg-video" autoplay loop muted playsinline preload="auto">
+            <source src="vid3.webm.webm" type="video/webm">
             <source src="vid3.webm" type="video/webm">
         </video>
     </div>
@@ -494,10 +506,10 @@ HTML
     <!-- 3. GSAP SCROLLTRIGGER NARRATIVE -->
     <main class="scroll-container">
 
-        <!-- SECTION 0: HERO (Triggers vid1.webm) -->
+        <!-- SECTION 0: HERO (Triggers vid1) -->
         <section id="hero" class="section" data-video="vid1">
             <div class="glass-panel gsap-panel">
-                <span class="node-badge">SOVEREIGN ENTERPRISE INFRASTRUCTURE // NORTH FLORIDA</span>
+                <span class="node-badge" id="abm-badge">SOVEREIGN ENTERPRISE INFRASTRUCTURE // NORTH FLORIDA</span>
                 <h1>Stop Burning Payroll on Manual Ops &amp; Static Intake.</h1>
                 <p>We build air-gapped Agentic Digital Workers. We don't sell consumer chatbots; we engineer headless operational infrastructure that eliminates <strong>80% to 90% of manual data triage</strong> so your executives focus strictly on high-ticket closing.</p>
                 
@@ -520,7 +532,7 @@ HTML
             </div>
         </section>
 
-        <!-- SECTION 1: TECHNICAL PROOF 1 (Triggers vid1.webm) -->
+        <!-- SECTION 1: TECHNICAL PROOF 1 (Triggers vid1) -->
         <section id="node-intake" class="section" data-video="vid1">
             <div class="glass-panel gsap-panel">
                 <span class="node-badge">PHASE 01 // HIGH-VELOCITY INGESTION</span>
@@ -530,7 +542,7 @@ HTML
             </div>
         </section>
 
-        <!-- SECTION 2: TECHNICAL PROOF 2 (Crossfades to vid2.webm - Microchip) -->
+        <!-- SECTION 2: TECHNICAL PROOF 2 (Crossfades to vid2 - Microchip) -->
         <section id="node-pii" class="section" data-video="vid2">
             <div class="glass-panel gsap-panel">
                 <span class="node-badge">PHASE 02 // ZERO-LEAK COMPLIANCE</span>
@@ -540,7 +552,7 @@ HTML
             </div>
         </section>
 
-        <!-- SECTION 3: TECHNICAL PROOF 3 (Crossfades to vid3.webm - JSON Server Rack) -->
+        <!-- SECTION 3: TECHNICAL PROOF 3 (Crossfades to vid3 - JSON Server Rack) -->
         <section id="node-crm" class="section" data-video="vid3">
             <div class="glass-panel gsap-panel">
                 <span class="node-badge">PHASE 03 // DETERMINISTIC EXECUTION</span>
@@ -550,7 +562,7 @@ HTML
             </div>
         </section>
 
-        <!-- SECTION 4: UNIFIED TRI-LAYER ENTERPRISE PRICING (Retains vid3.webm) -->
+        <!-- SECTION 4: UNIFIED TRI-LAYER ENTERPRISE PRICING (Retains vid3) -->
         <section id="architecture-pricing" class="section" data-video="vid3">
             <div class="glass-panel gsap-panel">
                 <span class="node-badge">COMMERCIAL ARCHITECTURE // ZERO-BLOAT ENGAGEMENT</span>
@@ -618,11 +630,23 @@ HTML
         </div>
     </div>
 
-    <!-- 5. DETERMINISTIC ANIMATION & VIDEO SWITCHING ENGINE -->
+    <!-- 5. DETERMINISTIC ANIMATION, ABM & VIDEO SWITCHING ENGINE -->
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // A. Ensure all 3 background videos are muted and actively playing in browser memory
+        // A. Dynamic ABM URL Parameter Reader (?client=CompanyName)
+        (function applyABM() {
+            const params = new URLSearchParams(window.location.search);
+            const client = params.get('client');
+            if (client) {
+                const badge = document.getElementById('abm-badge');
+                if (badge) {
+                    badge.textContent = `PREPARED FOR ${client.toUpperCase()} // WHITE-LABEL OVERFLOW ARCHITECTURE`;
+                }
+            }
+        })();
+
+        // B. Ensure all 3 background videos are muted and actively playing
         const videos = {
             vid1: document.getElementById('vid1'),
             vid2: document.getElementById('vid2'),
@@ -632,6 +656,7 @@ HTML
         Object.values(videos).forEach(v => {
             if (v) {
                 v.muted = true;
+                v.load();
                 v.play().catch(() => {});
             }
         });
@@ -647,7 +672,7 @@ HTML
             });
         }
 
-        // B. Animate Glassmorphism Panels + Crossfade Videos per Section
+        // C. Animate Glassmorphism Panels + Crossfade Videos per Section
         const sections = document.querySelectorAll('.section');
         sections.forEach((sec) => {
             const panel = sec.querySelector('.gsap-panel');
@@ -669,7 +694,7 @@ HTML
             });
         });
 
-        // C. Cursor-Tracked Radial Glow on Glass Panels
+        // D. Cursor-Tracked Radial Glow on Glass Panels
         document.querySelectorAll('.glass-panel').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
@@ -678,7 +703,7 @@ HTML
             });
         });
 
-        // D. Interactive 4-Stage Packet Triage Simulator
+        // E. Interactive 4-Stage Packet Triage Simulator
         let traceRunning = false;
         function runLiveTrace() {
             if (traceRunning) return;
@@ -705,7 +730,7 @@ HTML
             });
         }
 
-        // E. Command Palette (Ctrl+K / Cmd+K)
+        // F. Command Palette (Ctrl+K / Cmd+K)
         function toggleCmdModal() {
             document.getElementById('cmd-overlay').classList.toggle('open');
         }
