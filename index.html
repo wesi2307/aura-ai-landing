@@ -1,23 +1,13 @@
-Here is the complete, updated index.html production code with the dual-extension fallback (vid1.webm.webm and vid1.webm) hardcoded directly into the video engine and the JavaScript loader.
-
-10-Second Execution Steps:
-Open index.html in GitHub and click the Pencil icon (Edit).
-
-Click inside the code editor, press Ctrl + A (Select All), and press Backspace so the editor is 100% empty.
-
-Copy the entire code block below, press Ctrl + V to paste it in, and click the green Commit changes... button.
-
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isaac Sovereign Architecture | Enterprise Agentic Infrastructure</title>
-    <meta name="description" content="We engineer headless, air-gapped Agentic Digital Workers and deterministic API pipelines that eliminate 80% of manual operational triage.">
+    <title>Aura AI Systems | Air-Gapped & Customer-Controlled AI Architecture</title>
+    <meta name="description" content="Enterprise LLM orchestration, Voiceflow agents, and Make.com pipelines deployed strictly inside your sovereign tenant. Zero production data exposure.">
     
-    <!-- Embedded SVG Sovereign Crest Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050505'/%3E%3Cpath d='M32 8L52 19.5V44.5L32 56L12 44.5V19.5L32 8Z' stroke='%2300F0FF' stroke-width='3' fill='none'/%3E%3Cpath d='M32 18L44 25V39L32 46L20 39V25L32 18Z' stroke='%237000FF' stroke-width='2' fill='rgba(0,240,255,0.08)'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%2300F0FF'/%3E%3C/svg%3E">
+    <!-- Embedded SVG Aura Crest Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050505'/%3E%3Cpath d='M32 8L52 19.5V44.5L32 56L12 44.5V19.5L32 8Z' stroke='%233B82F6' stroke-width='3' fill='none'/%3E%3Cpath d='M32 18L44 25V39L32 46L20 39V25L32 18Z' stroke='%2306B6D4' stroke-width='2' fill='rgba(59,130,246,0.08)'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%233B82F6'/%3E%3C/svg%3E">
 
     <!-- Inter & JetBrains Mono Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,14 +20,14 @@ HTML
 
     <style>
         :root {
-            --bg-obsidian: #050505;
-            --cyan-sovereign: #00F0FF;
+            --bg-obsidian: #050507;
+            --blue-aura: #3B82F6;
+            --cyan-aura: #06B6D4;
             --emerald-active: #10B981;
-            --purple-node: #8B5CF6;
             --text-primary: #FFFFFF;
-            --text-muted: #A1A1AA;
-            --glass-bg: rgba(14, 14, 18, 0.58);
-            --glass-border: rgba(255, 255, 255, 0.12);
+            --text-muted: #94A3B8;
+            --glass-bg: rgba(15, 23, 42, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -59,38 +49,38 @@ HTML
             width: 100vw; height: 100vh;
             z-index: -2;
             overflow: hidden;
-            background: #050505;
+            background: #050507;
         }
 
         .bg-video {
             position: absolute;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
+            transform: translate(-50%, -50%);
             object-fit: cover;
             opacity: 0;
-            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1);
             will-change: opacity;
-            filter: saturate(1.1) contrast(1.05);
+            filter: brightness(1.2) contrast(1.1) saturate(1.15);
         }
 
         .bg-video.active {
-            opacity: 1;
+            opacity: 0.8; /* High clarity & visibility */
         }
 
-        /* Contrast & Legibility Mask (85% to 45% Gradient) */
+        /* Contrast & Legibility Mask */
         .video-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100vw; height: 100vh;
-            background: 
-                radial-gradient(circle at 50% 20%, rgba(5, 5, 5, 0.45) 0%, rgba(5, 5, 5, 0.88) 100%),
-                linear-gradient(180deg, rgba(5, 5, 5, 0.85) 0%, rgba(5, 5, 5, 0.45) 50%, rgba(5, 5, 5, 0.90) 100%);
+            background: radial-gradient(circle at center, rgba(5, 5, 7, 0.4) 0%, rgba(5, 5, 7, 0.8) 75%, rgba(5, 5, 7, 0.95) 100%);
             z-index: -1;
             pointer-events: none;
         }
 
         /* ==========================================
-           2. TOP TELEMETRY & SOVEREIGN CREST HEADER
+           2. TOP TELEMETRY & BRAND HEADER
            ========================================== */
         .top-nav {
             position: fixed;
@@ -98,7 +88,7 @@ HTML
             z-index: 50;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            background: rgba(5, 5, 5, 0.72);
+            background: rgba(5, 5, 7, 0.75);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding: 0.85rem 2rem;
             display: flex;
@@ -116,7 +106,7 @@ HTML
 
         .crest-svg {
             width: 36px; height: 36px;
-            filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.35));
+            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.4));
         }
 
         .brand-title {
@@ -131,7 +121,7 @@ HTML
         .brand-sub {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.68rem;
-            color: var(--cyan-sovereign);
+            color: var(--blue-aura);
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
@@ -142,7 +132,7 @@ HTML
             gap: 0.6rem;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
-            color: #D4D4D8;
+            color: #CBD5E1;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0.4rem 0.85rem;
@@ -181,12 +171,12 @@ HTML
         }
 
         .cmd-trigger:hover {
-            border-color: var(--cyan-sovereign);
+            border-color: var(--blue-aura);
             color: #FFF;
         }
 
         /* ==========================================
-           3. GLASSMORPHISM SECTIONS & RADIAL CARDS
+           3. GLASSMORPHISM SECTIONS & CARDS
            ========================================== */
         .scroll-container {
             position: relative;
@@ -208,36 +198,28 @@ HTML
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-top: 1px solid rgba(255, 255, 255, 0.24);
-            border-left: 1px solid rgba(255, 255, 255, 0.20);
+            border-top: 1px solid rgba(255, 255, 255, 0.22);
+            border-left: 1px solid rgba(255, 255, 255, 0.18);
             padding: 3.5rem;
             border-radius: 20px;
-            max-width: 880px;
+            max-width: 900px;
             width: 100%;
             box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.75);
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(40px);
             overflow: hidden;
         }
 
-        /* Cursor-Tracked Radial Spotlight Effect */
         .glass-panel::before {
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(
-                600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                rgba(0, 240, 255, 0.09),
-                transparent 40%
-            );
+            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.08), transparent 40%);
             z-index: 0;
             pointer-events: none;
         }
 
-        .glass-panel > * {
-            position: relative;
-            z-index: 1;
-        }
+        .glass-panel > * { position: relative; z-index: 1; }
 
         .node-badge {
             display: inline-flex;
@@ -247,9 +229,9 @@ HTML
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--cyan-sovereign);
-            background: rgba(0, 240, 255, 0.08);
-            border: 1px solid rgba(0, 240, 255, 0.28);
+            color: var(--cyan-aura);
+            background: rgba(6, 182, 212, 0.08);
+            border: 1px solid rgba(6, 182, 212, 0.28);
             padding: 0.35rem 0.8rem;
             border-radius: 6px;
             margin-bottom: 1.25rem;
@@ -265,15 +247,15 @@ HTML
 
         h2 {
             font-size: clamp(1.85rem, 3.5vw, 2.65rem);
-            color: var(--cyan-sovereign);
+            color: var(--cyan-aura);
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 1rem;
         }
 
         p {
-            font-size: 1.15rem;
-            color: #D4D4D8;
+            font-size: 1.125rem;
+            color: #CBD5E1;
             margin-bottom: 1.75rem;
             max-width: 720px;
         }
@@ -281,9 +263,9 @@ HTML
         .code-block {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
-            color: var(--cyan-sovereign);
-            background: rgba(0, 0, 0, 0.65);
-            border: 1px solid rgba(0, 240, 255, 0.22);
+            color: var(--cyan-aura);
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(59, 130, 246, 0.3);
             padding: 1rem 1.25rem;
             border-radius: 10px;
             display: block;
@@ -292,7 +274,7 @@ HTML
         }
 
         /* ==========================================
-           4. INTERACTIVE PACKET SANDBOX & CTA
+           4. CTA & PRICING MATRICES
            ========================================== */
         .cta-row {
             display: flex;
@@ -305,8 +287,8 @@ HTML
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            background: var(--cyan-sovereign);
-            color: #050505;
+            background: var(--blue-aura);
+            color: #FFFFFF;
             font-weight: 700;
             font-size: 0.95rem;
             padding: 0.9rem 1.6rem;
@@ -315,12 +297,12 @@ HTML
             border: none;
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.35);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 35px rgba(0, 240, 255, 0.6);
+            box-shadow: 0 0 35px rgba(59, 130, 246, 0.65);
         }
 
         .btn-secondary {
@@ -340,53 +322,33 @@ HTML
         }
 
         .btn-secondary:hover {
-            border-color: var(--cyan-sovereign);
-            background: rgba(0, 240, 255, 0.08);
+            border-color: var(--blue-aura);
+            background: rgba(59, 130, 246, 0.1);
         }
 
-        .sandbox-terminal {
-            margin-top: 1.5rem;
-            background: rgba(5, 5, 8, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 12px;
-            padding: 1.25rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-        }
-
-        .trace-step {
-            padding: 0.45rem 0;
-            color: #71717A;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
-            transition: color 0.3s ease;
-        }
-
-        .trace-step.active-step {
-            color: var(--emerald-active);
-            font-weight: 600;
-        }
-
-        /* Pricing Tri-Layer Matrix */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
             margin: 1.5rem 0;
         }
 
         .tier-card {
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.25rem;
-            border-radius: 12px;
+            padding: 1.5rem;
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .tier-price {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--cyan-sovereign);
-            margin: 0.35rem 0;
+            color: var(--cyan-aura);
+            margin: 0.5rem 0;
         }
 
         /* ==========================================
@@ -395,7 +357,7 @@ HTML
         .cmd-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.78);
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(8px);
             z-index: 100;
             display: none;
@@ -407,8 +369,8 @@ HTML
         .cmd-overlay.open { display: flex; }
 
         .cmd-modal {
-            background: #0D0D12;
-            border: 1px solid rgba(0, 240, 255, 0.35);
+            background: #0B0F17;
+            border: 1px solid rgba(59, 130, 246, 0.4);
             border-radius: 14px;
             max-width: 520px;
             width: 100%;
@@ -445,8 +407,8 @@ HTML
         }
 
         .cmd-item:hover {
-            background: rgba(0, 240, 255, 0.12);
-            color: var(--cyan-sovereign);
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--cyan-aura);
         }
 
         @media (max-width: 768px) {
@@ -460,12 +422,12 @@ HTML
 
     <!-- 1. MULTI-VIDEO CINEMATIC BACKGROUND STACK (Dual-Extension Fallback) -->
     <div class="video-background-container">
-        <!-- Video 1: Fiber Optic Data Tunnel (Active by default) -->
+        <!-- Video 1: Fiber Optic Data Tunnel -->
         <video id="vid1" class="bg-video active" autoplay loop muted playsinline preload="auto">
             <source src="vid1.webm.webm" type="video/webm">
             <source src="vid1.webm" type="video/webm">
         </video>
-        <!-- Video 2: PII Sanitization Microchip -->
+        <!-- Video 2: PII Sanitization Microchip (Forced minimum dwell time) -->
         <video id="vid2" class="bg-video" autoplay loop muted playsinline preload="auto">
             <source src="vid2.webm.webm" type="video/webm">
             <source src="vid2.webm" type="video/webm">
@@ -482,20 +444,19 @@ HTML
     <header class="top-nav">
         <a href="#hero" class="brand-cluster">
             <svg class="crest-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M32 6L54 18.5V45.5L32 58L10 45.5V18.5L32 6Z" stroke="#00F0FF" stroke-width="2.5"/>
-                <path d="M32 16L45 23.5V38.5L32 46L19 38.5V23.5L32 16Z" stroke="#8B5CF6" stroke-width="2" fill="rgba(0, 240, 255, 0.08)"/>
-                <circle cx="32" cy="31" r="4" fill="#00F0FF"/>
-                <path d="M32 6V16M54 18.5L45 23.5M54 45.5L45 38.5M32 58V46M10 45.5L19 38.5M10 18.5L19 23.5" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+                <path d="M32 6L54 18.5V45.5L32 58L10 45.5V18.5L32 6Z" stroke="#3B82F6" stroke-width="2.5"/>
+                <path d="M32 16L45 23.5V38.5L32 46L19 38.5V23.5L32 16Z" stroke="#06B6D4" stroke-width="2" fill="rgba(59, 130, 246, 0.08)"/>
+                <circle cx="32" cy="31" r="4" fill="#3B82F6"/>
             </svg>
             <div class="brand-title">
-                <span>ISAAC SOVEREIGN</span>
-                <span class="brand-sub">ARCHITECTURE // NODE_V1</span>
+                <span>AURA AI SYSTEMS</span>
+                <span class="brand-sub">ACCESS_SCOPED // ENTERPRISE_V1</span>
             </div>
         </a>
 
         <div class="telemetry-pill">
             <span class="pulse-dot"></span>
-            <span>NODE STATUS: PRODUCTION_ACTIVE // "processed_by": "isaac_sovereign_v1"</span>
+            <span>NODE STATUS: SECURE_AIR_GAPPED // "architecture": "customer_controlled"</span>
         </div>
 
         <div class="nav-actions">
@@ -509,90 +470,86 @@ HTML
         <!-- SECTION 0: HERO (Triggers vid1) -->
         <section id="hero" class="section" data-video="vid1">
             <div class="glass-panel gsap-panel">
-                <span class="node-badge" id="abm-badge">SOVEREIGN ENTERPRISE INFRASTRUCTURE // NORTH FLORIDA</span>
-                <h1>Stop Burning Payroll on Manual Ops &amp; Static Intake.</h1>
-                <p>We build air-gapped Agentic Digital Workers. We don't sell consumer chatbots; we engineer headless operational infrastructure that eliminates <strong>80% to 90% of manual data triage</strong> so your executives focus strictly on high-ticket closing.</p>
+                <span class="node-badge" id="abm-badge">AURA AI SYSTEMS // TRI-LANE ENTERPRISE ARCHITECTURE</span>
+                <h1>Air-Gapped &amp; Customer-Controlled <span style="color: var(--cyan-aura);">AI Infrastructure.</span></h1>
+                <p>We architect headless LLM orchestration, Voiceflow agents, and Make.com pipelines deployed strictly inside your sovereign tenant. <strong>You own the intellectual property. You hold the credentials. We never touch your production data.</strong></p>
                 
                 <div class="cta-row">
-                    <a href="mailto:wes@isaacsovereign.com?subject=Layer%201%20Architecture%20Diagnostic%20Inquiry" class="btn-primary">
-                        Deploy Layer 1 Diagnostic ($7,500) &rarr;
+                    <a href="mailto:wes@aura-ai.agency?subject=Lane%201%20Implementation%20Inquiry" class="btn-primary">
+                        Deploy Customer-Controlled Build &rarr;
                     </a>
-                    <button class="btn-secondary" onclick="runLiveTrace()">
-                        &#9654; Simulate Live Packet Triage
-                    </button>
-                </div>
-
-                <!-- Interactive 4-Node Execution Sandbox -->
-                <div class="sandbox-terminal" id="sandbox-terminal">
-                    <div class="trace-step" id="step-1">[01] INGESTION_WEBHOOK :: Waiting for inbound enterprise payload...</div>
-                    <div class="trace-step" id="step-2">[02] REGEX_PII_MASK :: Standby (\b\d{3}-\d{2}-\d{4}\b -&gt; [REDACTED])</div>
-                    <div class="trace-step" id="step-3">[03] MULTI_LLM_XML_EVAL :: Standby (&lt;triage_packet intent="HOT"&gt;)</div>
-                    <div class="trace-step" id="step-4">[04] CRM_WEBHOOK_COMMIT :: Standby (Zero-Touch JSON Payload Delivery)</div>
+                    <a href="#security" class="btn-secondary">
+                        Inspect Zero-Access Protocol
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 1: TECHNICAL PROOF 1 (Triggers vid1) -->
-        <section id="node-intake" class="section" data-video="vid1">
+        <!-- SECTION 1: ZERO-ACCESS SECURITY PROTOCOL (Triggers vid1) -->
+        <section id="security" class="section" data-video="vid1">
             <div class="glass-panel gsap-panel">
-                <span class="node-badge">PHASE 01 // HIGH-VELOCITY INGESTION</span>
-                <h2>1. The Webhook Intercept</h2>
-                <p>We intercept high-value prospect, carrier, and legal intake data the millisecond it hits your inbox or form endpoints. Zero manual forwarding. Zero human latency. Pure deterministic API routing.</p>
-                <code class="code-block">STATUS: CONNECTED // INGESTION_ACTIVE // LATENCY: 42ms</code>
+                <span class="node-badge">SECURITY ARCHITECTURE // BYPASSING CHECKR VRM</span>
+                <h2>The Production Isolation Guarantee</h2>
+                <p>Traditional vendors demand persistent logins to your live databases, triggering heavy SOC 2 and Checkr background check friction. Aura AI Systems eliminates personnel risk by design:</p>
+                
+                <div class="code-block">
+                    // MSA ACCESS-SCOPING CLAUSE SPECIFICATION<br>
+                    01. Contractor receives ZERO production credentials or PII access.<br>
+                    02. All payloads built in isolated sandboxes and deployed via screen-share.<br>
+                    03. Client's internal engineering team executes final production cutover.
+                </div>
             </div>
         </section>
 
-        <!-- SECTION 2: TECHNICAL PROOF 2 (Crossfades to vid2 - Microchip) -->
-        <section id="node-pii" class="section" data-video="vid2">
+        <!-- SECTION 2: TRI-LANE REVENUE MODELS (Crossfades to vid2 - PII Microchip) -->
+        <section id="tri-lane" class="section" data-video="vid2">
             <div class="glass-panel gsap-panel">
-                <span class="node-badge">PHASE 02 // ZERO-LEAK COMPLIANCE</span>
-                <h2>2. PII Sanitization Mask</h2>
-                <p>Before proprietary client data ever touches a model endpoint, our middle-tier sanitization layer physically scrubs Social Security Numbers, financial routing identifiers, and sensitive PII via strict Regex parameters.</p>
-                <code class="code-block">REGEX_FILTER: \b\d{3}-\d{2}-\d{4}\b -&gt; [REDACTED_BY_SOVEREIGN_NODE]</code>
-            </div>
-        </section>
-
-        <!-- SECTION 3: TECHNICAL PROOF 3 (Crossfades to vid3 - JSON Server Rack) -->
-        <section id="node-crm" class="section" data-video="vid3">
-            <div class="glass-panel gsap-panel">
-                <span class="node-badge">PHASE 03 // DETERMINISTIC EXECUTION</span>
-                <h2>3. Zero-Touch CRM Injection</h2>
-                <p>Unstructured emails, PDFs, and dispatch packets are parsed into strict XML/JSON schemas and pushed directly into HubSpot, Salesforce, or GoHighLevel—triggering instant executive SMS alerts on high-intent deals.</p>
-                <code class="code-block">{ "processed_by": "isaac_sovereign_v1", "payload": "delivered", "triage_compression": "84%" }</code>
-            </div>
-        </section>
-
-        <!-- SECTION 4: UNIFIED TRI-LAYER ENTERPRISE PRICING (Retains vid3) -->
-        <section id="architecture-pricing" class="section" data-video="vid3">
-            <div class="glass-panel gsap-panel">
-                <span class="node-badge">COMMERCIAL ARCHITECTURE // ZERO-BLOAT ENGAGEMENT</span>
-                <h2>Unified Tri-Layer Deployment</h2>
-                <p>We do not sell hourly consulting fluff. We deploy production-grade infrastructure with deterministic financial ROI.</p>
+                <span class="node-badge">COMMERCIAL ARCHITECTURE // THE TRI-LANE MODEL</span>
+                <h2>Three Non-Conflicting Revenue Engines</h2>
+                <p>Engineered for high-yield enterprise contracts without violating compliance boundaries or personal reporting constraints.</p>
 
                 <div class="pricing-grid">
                     <div class="tier-card">
-                        <div class="brand-sub">LAYER 01 // DIAGNOSTIC &amp; BUILD</div>
-                        <div class="tier-price">$7,500 – $20k</div>
-                        <div style="font-size:0.85rem; color:#A1A1AA;">Full operational audit, PII sanitization architecture, and custom multi-LLM webhook deployment.</div>
+                        <div>
+                            <div class="brand-sub">LANE 01 // TURNKEY</div>
+                            <div class="tier-price">$15k – $45k</div>
+                            <div style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">Customer-controlled implementations. Client owns accounts; we build and guide deployment.</div>
+                        </div>
+                        <a href="mailto:wes@aura-ai.agency?subject=Lane%201%20Project%20Scope" class="btn-secondary" style="margin-top: 1rem; width:100%; text-align:center; justify-content:center;">Scope Lane 1</a>
+                    </div>
+                    <div class="tier-card" style="border-color: var(--blue-aura);">
+                        <div>
+                            <div class="brand-sub">LANE 02 // PARTNER</div>
+                            <div class="tier-price">40% – 60% Split</div>
+                            <div style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">Disclosed agency subcontracting. Partner holds MSA; we build air-gapped backend IP.</div>
+                        </div>
+                        <a href="mailto:wes@aura-ai.agency?subject=Lane%202%20Agency%20Partnership" class="btn-primary" style="margin-top: 1rem; width:100%; text-align:center; justify-content:center;">Partner Desk</a>
                     </div>
                     <div class="tier-card">
-                        <div class="brand-sub">LAYER 02 // INFRASTRUCTURE RETAINER</div>
-                        <div class="tier-price">$5,000 – $10k/mo</div>
-                        <div style="font-size:0.85rem; color:#A1A1AA;">Continuous zero-drift RAG indexing, API schema maintenance, and headless control telemetry.</div>
-                    </div>
-                    <div class="tier-card">
-                        <div class="brand-sub">LAYER 03 // TELEMETRIC GAINSHARE</div>
-                        <div class="tier-price">15% – 25%</div>
-                        <div style="font-size:0.85rem; color:#A1A1AA;">Performance-linked alignment tied to verified W-2 payroll compression and recovered pipeline velocity.</div>
+                        <div>
+                            <div class="brand-sub">LANE 03 // LICENSING</div>
+                            <div class="tier-price">$20k+/yr License</div>
+                            <div style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">Air-gapped productized IP and repeatable workflow templates deployed locally.</div>
+                        </div>
+                        <a href="mailto:wes@aura-ai.agency?subject=Lane%203%20IP%20Licensing" class="btn-secondary" style="margin-top: 1rem; width:100%; text-align:center; justify-content:center;">License IP</a>
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <!-- SECTION 3: THE TROJAN HORSE AUDIT & CONTACT (Crossfades to vid3 - Server Rack) -->
+        <section id="audit" class="section" data-video="vid3">
+            <div class="glass-panel gsap-panel">
+                <span class="node-badge">ENTRY OFFER // AGENT OBSERVABILITY &amp; GOVERNANCE</span>
+                <h2>The $2,500 Security Audit</h2>
+                <p>Not ready for a full deployment? We execute a fixed-price, 14-day Agent Governance &amp; Permission Audit, delivering a complete security blueprint for your AI workflows.</p>
+                
                 <div class="cta-row">
-                    <a href="mailto:wes@isaacsovereign.com?subject=Executive%20Architecture%20Briefing" class="btn-primary">
-                        Initiate Executive Briefing (wes@isaacsovereign.com)
+                    <a href="mailto:wes@aura-ai.agency?subject=Agent%20Governance%20Audit%20($2,500)" class="btn-primary">
+                        Book $2,500 Audit &rarr;
                     </a>
-                    <a href="mailto:wes@aura-ai.agency?subject=White-Label%20MSP%20or%20Agency%20Overflow%20Partnership" class="btn-secondary">
-                        MSP / Dev-Shop White-Label Desk (wes@aura-ai.agency)
+                    <a href="mailto:wes@aura-ai.agency?subject=Direct%20Architect%20Inquiry" class="btn-secondary">
+                        Direct Desk: wes@aura-ai.agency
                     </a>
                 </div>
             </div>
@@ -604,33 +561,44 @@ HTML
     <div class="cmd-overlay" id="cmd-overlay" onclick="if(event.target === this) toggleCmdModal()">
         <div class="cmd-modal">
             <div class="cmd-header">
-                <span>ISAAC SOVEREIGN // EXECUTIVE COMMAND BAR</span>
+                <span>AURA AI SYSTEMS // EXECUTIVE COMMAND BAR</span>
                 <span>ESC to close</span>
             </div>
-            <button class="cmd-item" onclick="runLiveTrace(); toggleCmdModal();">
-                <span>&#9654; Run Live 4-Node Packet Triage Simulation</span>
-                <span class="brand-sub">TRACE</span>
+            <button class="cmd-item" onclick="location.href='#security'; toggleCmdModal();">
+                <span>01 // Inspect Zero-Access VRM Protocol</span>
+                <span class="brand-sub">SECURITY</span>
             </button>
-            <button class="cmd-item" onclick="location.href='#node-intake'; toggleCmdModal();">
-                <span>01 // Jump to Webhook Intercept Architecture</span>
-                <span class="brand-sub">VID_01</span>
+            <button class="cmd-item" onclick="location.href='#tri-lane'; toggleCmdModal();">
+                <span>02 // View Tri-Lane Revenue Architecture</span>
+                <span class="brand-sub">PRICING</span>
             </button>
-            <button class="cmd-item" onclick="location.href='#node-pii'; toggleCmdModal();">
-                <span>02 // Jump to PII Regex Sanitization Mask</span>
-                <span class="brand-sub">VID_02</span>
-            </button>
-            <button class="cmd-item" onclick="location.href='#node-crm'; toggleCmdModal();">
-                <span>03 // Jump to Zero-Touch CRM JSON Injection</span>
-                <span class="brand-sub">VID_03</span>
+            <button class="cmd-item" onclick="location.href='#audit'; toggleCmdModal();">
+                <span>03 // Book $2,500 Agent Governance Audit</span>
+                <span class="brand-sub">AUDIT</span>
             </button>
             <button class="cmd-item" onclick="copyArchitectEmail()">
-                <span id="copy-email-text">&#128203; Copy Direct Architect Email (wes@isaacsovereign.com)</span>
+                <span id="copy-email-text">&#128203; Copy Architect Email (wes@aura-ai.agency)</span>
                 <span class="brand-sub">COPY</span>
             </button>
         </div>
     </div>
 
-    <!-- 5. DETERMINISTIC ANIMATION, ABM & VIDEO SWITCHING ENGINE -->
+    <!-- 5. EMBEDDED VOICEFLOW / MAKE.COM AI QUALIFIER BOT -->
+    <script type="text/javascript">
+        (function(d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function() {
+                window.voiceflow.chat.load({
+                    verify: { projectID: 'YOUR_VOICEFLOW_PROJECT_ID' }, // Replace with your Voiceflow project ID
+                    url: 'https://general-runtime.voiceflow.com',
+                    versionID: 'production'
+                });
+            }
+            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+    </script>
+
+    <!-- 6. ANIMATION, ABM & VIDEO SWITCHING ENGINE -->
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
@@ -641,12 +609,12 @@ HTML
             if (client) {
                 const badge = document.getElementById('abm-badge');
                 if (badge) {
-                    badge.textContent = `PREPARED FOR ${client.toUpperCase()} // WHITE-LABEL OVERFLOW ARCHITECTURE`;
+                    badge.textContent = `PREPARED FOR ${client.toUpperCase()} // AIR-GAPPED ARCHITECTURE`;
                 }
             }
         })();
 
-        // B. Ensure all 3 background videos are muted and actively playing
+        // B. Ensure background videos are muted and active
         const videos = {
             vid1: document.getElementById('vid1'),
             vid2: document.getElementById('vid2'),
@@ -699,38 +667,11 @@ HTML
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
                 card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-                card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                card.style.setProperty('--mouse-y`, `${e.clientY - rect.top}px`);
             });
         });
 
-        // E. Interactive 4-Stage Packet Triage Simulator
-        let traceRunning = false;
-        function runLiveTrace() {
-            if (traceRunning) return;
-            traceRunning = true;
-            const steps = [
-                { id: 'step-1', text: '[01] INGESTION_WEBHOOK :: Payload captured (24KB PDF + MIME body) [18ms]' },
-                { id: 'step-2', text: '[02] REGEX_PII_MASK :: 2 SSNs & 1 Acct# stripped -> [REDACTED_BY_SOVEREIGN_NODE]' },
-                { id: 'step-3', text: '[03] MULTI_LLM_XML_EVAL :: <triage_packet intent="HOT" est_value="$42,000">' },
-                { id: 'step-4', text: '[04] CRM_WEBHOOK_COMMIT :: JSON injected to CRM + SMS dispatched [COMPLETE]' }
-            ];
-
-            steps.forEach(s => {
-                const el = document.getElementById(s.id);
-                el.classList.remove('active-step');
-            });
-
-            steps.forEach((s, idx) => {
-                setTimeout(() => {
-                    const el = document.getElementById(s.id);
-                    el.textContent = s.text;
-                    el.classList.add('active-step');
-                    if (idx === steps.length - 1) traceRunning = false;
-                }, (idx + 1) * 450);
-            });
-        }
-
-        // F. Command Palette (Ctrl+K / Cmd+K)
+        // E. Command Palette (Ctrl+K / Cmd+K)
         function toggleCmdModal() {
             document.getElementById('cmd-overlay').classList.toggle('open');
         }
@@ -746,9 +687,9 @@ HTML
         });
 
         function copyArchitectEmail() {
-            navigator.clipboard.writeText('wes@isaacsovereign.com');
+            navigator.clipboard.writeText('wes@aura-ai.agency');
             const label = document.getElementById('copy-email-text');
-            label.textContent = '✓ COPIED: wes@isaacsovereign.com';
+            label.textContent = '✓ COPIED: wes@aura-ai.agency';
             setTimeout(() => toggleCmdModal(), 700);
         }
     </script>
