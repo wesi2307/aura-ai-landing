@@ -27,8 +27,8 @@ HTML
             --emerald-active: #10B981;
             --text-primary: #FFFFFF;
             --text-muted: #94A3B8;
-            --glass-bg: rgba(15, 23, 42, 0.65);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(15, 23, 42, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -67,15 +67,14 @@ HTML
         }
 
         .bg-video.active {
-            opacity: 0.8; /* High clarity & visibility */
+            opacity: 0.8;
         }
 
-        /* Contrast & Legibility Mask */
         .video-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100vw; height: 100vh;
-            background: radial-gradient(circle at center, rgba(5, 5, 7, 0.4) 0%, rgba(5, 5, 7, 0.8) 75%, rgba(5, 5, 7, 0.95) 100%);
+            background: radial-gradient(circle at center, rgba(5, 5, 7, 0.3) 0%, rgba(5, 5, 7, 0.75) 75%, rgba(5, 5, 7, 0.92) 100%);
             z-index: -1;
             pointer-events: none;
         }
@@ -89,7 +88,7 @@ HTML
             z-index: 50;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            background: rgba(5, 5, 7, 0.75);
+            background: rgba(5, 5, 7, 0.85);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding: 0.85rem 2rem;
             display: flex;
@@ -177,7 +176,7 @@ HTML
         }
 
         /* ==========================================
-           3. GLASSMORPHISM SECTIONS & CARDS
+           3. GLASSMORPHISM SECTIONS (FORCE VISIBLE FALLBACK)
            ========================================== */
         .scroll-container {
             position: relative;
@@ -199,28 +198,18 @@ HTML
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-top: 1px solid rgba(255, 255, 255, 0.22);
-            border-left: 1px solid rgba(255, 255, 255, 0.18);
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
             padding: 3.5rem;
             border-radius: 20px;
             max-width: 900px;
             width: 100%;
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.75);
-            opacity: 0;
-            transform: translateY(40px);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8);
+            /* Ensured visibility even if JS load lags */
+            opacity: 1; 
+            transform: translateY(0);
             overflow: hidden;
         }
-
-        .glass-panel::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.08), transparent 40%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .glass-panel > * { position: relative; z-index: 1; }
 
         .node-badge {
             display: inline-flex;
@@ -421,19 +410,16 @@ HTML
 </head>
 <body>
 
-    <!-- 1. MULTI-VIDEO CINEMATIC BACKGROUND STACK (Dual-Extension Fallback) -->
+    <!-- 1. MULTI-VIDEO CINEMATIC BACKGROUND STACK -->
     <div class="video-background-container">
-        <!-- Video 1: Fiber Optic Data Tunnel -->
         <video id="vid1" class="bg-video active" autoplay loop muted playsinline preload="auto">
             <source src="vid1.webm.webm" type="video/webm">
             <source src="vid1.webm" type="video/webm">
         </video>
-        <!-- Video 2: PII Sanitization Microchip (Forced minimum dwell time) -->
         <video id="vid2" class="bg-video" autoplay loop muted playsinline preload="auto">
             <source src="vid2.webm.webm" type="video/webm">
             <source src="vid2.webm" type="video/webm">
         </video>
-        <!-- Video 3: Holographic JSON Server Rack -->
         <video id="vid3" class="bg-video" autoplay loop muted playsinline preload="auto">
             <source src="vid3.webm.webm" type="video/webm">
             <source src="vid3.webm" type="video/webm">
@@ -457,7 +443,7 @@ HTML
 
         <div class="telemetry-pill">
             <span class="pulse-dot"></span>
-            <span>NODE STATUS: SECURE_AIR_GAPPED // "architecture": "customer_controlled"</span>
+            <span>NODE STATUS: SECURE_AIR_GAPPED</span>
         </div>
 
         <div class="nav-actions">
@@ -465,15 +451,15 @@ HTML
         </div>
     </header>
 
-    <!-- 3. GSAP SCROLLTRIGGER NARRATIVE -->
+    <!-- 3. SECTIONS -->
     <main class="scroll-container">
 
-        <!-- SECTION 0: HERO (Triggers vid1) -->
+        <!-- SECTION 0: HERO -->
         <section id="hero" class="section" data-video="vid1">
-            <div class="glass-panel gsap-panel">
+            <div class="glass-panel">
                 <span class="node-badge" id="abm-badge">AURA AI SYSTEMS // TRI-LANE ENTERPRISE ARCHITECTURE</span>
                 <h1>Air-Gapped &amp; Customer-Controlled <span style="color: var(--cyan-aura);">AI Infrastructure.</span></h1>
-                <p>We architect headless LLM orchestration, Voiceflow agents, and Make.com pipelines deployed strictly inside your sovereign tenant. <strong>You own the intellectual property. You hold the credentials. We never touch your production data.</strong></p>
+                <p>We architect headless LLM orchestration, Voiceflow agents, and Make.com pipelines deployed strictly inside your sovereign tenant. <strong>You own the IP. You hold the credentials. We never touch your production data.</strong></p>
                 
                 <div class="cta-row">
                     <a href="mailto:wes@aura-ai.agency?subject=Lane%201%20Implementation%20Inquiry" class="btn-primary">
@@ -486,9 +472,9 @@ HTML
             </div>
         </section>
 
-        <!-- SECTION 1: ZERO-ACCESS SECURITY PROTOCOL (Triggers vid1) -->
+        <!-- SECTION 1: SECURITY -->
         <section id="security" class="section" data-video="vid1">
-            <div class="glass-panel gsap-panel">
+            <div class="glass-panel">
                 <span class="node-badge">SECURITY ARCHITECTURE // BYPASSING CHECKR VRM</span>
                 <h2>The Production Isolation Guarantee</h2>
                 <p>Traditional vendors demand persistent logins to your live databases, triggering heavy SOC 2 and Checkr background check friction. Aura AI Systems eliminates personnel risk by design:</p>
@@ -502,9 +488,9 @@ HTML
             </div>
         </section>
 
-        <!-- SECTION 2: TRI-LANE REVENUE MODELS (Crossfades to vid2 - PII Microchip) -->
+        <!-- SECTION 2: TRI-LANE -->
         <section id="tri-lane" class="section" data-video="vid2">
-            <div class="glass-panel gsap-panel">
+            <div class="glass-panel">
                 <span class="node-badge">COMMERCIAL ARCHITECTURE // THE TRI-LANE MODEL</span>
                 <h2>Three Non-Conflicting Revenue Engines</h2>
                 <p>Engineered for high-yield enterprise contracts without violating compliance boundaries or personal reporting constraints.</p>
@@ -538,9 +524,9 @@ HTML
             </div>
         </section>
 
-        <!-- SECTION 3: THE TROJAN HORSE AUDIT & CONTACT (Crossfades to vid3 - Server Rack) -->
+        <!-- SECTION 3: AUDIT -->
         <section id="audit" class="section" data-video="vid3">
-            <div class="glass-panel gsap-panel">
+            <div class="glass-panel">
                 <span class="node-badge">ENTRY OFFER // AGENT OBSERVABILITY &amp; GOVERNANCE</span>
                 <h2>The $2,500 Security Audit</h2>
                 <p>Not ready for a full deployment? We execute a fixed-price, 14-day Agent Governance &amp; Permission Audit, delivering a complete security blueprint for your AI workflows.</p>
@@ -558,7 +544,7 @@ HTML
 
     </main>
 
-    <!-- 4. EXECUTIVE COMMAND PALETTE MODAL (Ctrl+K / ⌘K) -->
+    <!-- 4. COMMAND PALETTE MODAL -->
     <div class="cmd-overlay" id="cmd-overlay" onclick="if(event.target === this) toggleCmdModal()">
         <div class="cmd-modal">
             <div class="cmd-header">
@@ -584,38 +570,8 @@ HTML
         </div>
     </div>
 
-    <!-- 5. EMBEDDED VOICEFLOW / MAKE.COM AI QUALIFIER BOT -->
-    <script type="text/javascript">
-        (function(d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            v.onload = function() {
-                window.voiceflow.chat.load({
-                    verify: { projectID: 'YOUR_VOICEFLOW_PROJECT_ID' }, // Replace with your Voiceflow project ID
-                    url: 'https://general-runtime.voiceflow.com',
-                    versionID: 'production'
-                });
-            }
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-    </script>
-
-    <!-- 6. ANIMATION, ABM & VIDEO SWITCHING ENGINE -->
+    <!-- 5. ENGINE SCRIPT -->
     <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        // A. Dynamic ABM URL Parameter Reader (?client=CompanyName)
-        (function applyABM() {
-            const params = new URLSearchParams(window.location.search);
-            const client = params.get('client');
-            if (client) {
-                const badge = document.getElementById('abm-badge');
-                if (badge) {
-                    badge.textContent = `PREPARED FOR ${client.toUpperCase()} // AIR-GAPPED ARCHITECTURE`;
-                }
-            }
-        })();
-
-        // B. Ensure background videos are muted and active
         const videos = {
             vid1: document.getElementById('vid1'),
             vid2: document.getElementById('vid2'),
@@ -641,38 +597,18 @@ HTML
             });
         }
 
-        // C. Animate Glassmorphism Panels + Crossfade Videos per Section
-        const sections = document.querySelectorAll('.section');
-        sections.forEach((sec) => {
-            const panel = sec.querySelector('.gsap-panel');
-            const targetVid = sec.getAttribute('data-video');
-
-            gsap.to(panel, {
-                scrollTrigger: {
-                    trigger: sec,
-                    start: "top 75%",
-                    end: "bottom 25%",
-                    toggleActions: "play reverse play reverse",
-                    onEnter: () => switchBackgroundVideo(targetVid),
-                    onEnterBack: () => switchBackgroundVideo(targetVid)
-                },
-                opacity: 1,
-                y: 0,
-                duration: 0.9,
-                ease: "power3.out"
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY + window.innerHeight / 2;
+            document.querySelectorAll('.section').forEach(sec => {
+                const top = sec.offsetTop;
+                const height = sec.offsetHeight;
+                if (scrollPos >= top && scrollPos < top + height) {
+                    const vid = sec.getAttribute('data-video');
+                    if (vid) switchBackgroundVideo(vid);
+                }
             });
         });
 
-        // D. Cursor-Tracked Radial Glow on Glass Panels
-        document.querySelectorAll('.glass-panel').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-                card.style.setProperty('--mouse-y`, `${e.clientY - rect.top}px`);
-            });
-        });
-
-        // E. Command Palette (Ctrl+K / Cmd+K)
         function toggleCmdModal() {
             document.getElementById('cmd-overlay').classList.toggle('open');
         }
