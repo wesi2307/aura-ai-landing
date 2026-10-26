@@ -1,0 +1,296 @@
+code
+Html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aura AI Quest: Master Builder Wes's Robot Factory!</title>
+  <style>
+    :root {
+      --bg: #070b19;
+      --card: #131c31;
+      --cyan: #00f0ff;
+      --green: #10b981;
+      --gold: #fbbf24;
+      --red: #f43f5e;
+      --purple: #a855f7;
+    }
+    * { box-sizing: border-box; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif; }
+    body {
+      margin: 0; padding: 16px;
+      background: radial-gradient(circle at top, #1e1b4b, var(--bg));
+      color: #f8fafc; text-align: center;
+    }
+    .hud {
+      position: sticky; top: 10px; z-index: 99;
+      max-width: 950px; margin: 0 auto 24px;
+      background: rgba(19, 28, 49, 0.95);
+      border: 3px solid var(--cyan); border-radius: 20px;
+      padding: 14px 20px; box-shadow: 0 0 30px rgba(0,240,255,0.3);
+      backdrop-filter: blur(10px);
+    }
+    .hud-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .rank-pill {
+      background: linear-gradient(90deg, var(--purple), #ec4899);
+      padding: 6px 16px; border-radius: 99px; font-weight: bold; font-size: 1.05rem;
+    }
+    .stats { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+    .stat-box {
+      background: #090d16; border: 2px solid var(--gold);
+      color: var(--gold); padding: 8px 16px; border-radius: 14px; font-weight: bold;
+    }
+    .progress-wrap {
+      width: 100%; background: #090d16; height: 18px;
+      border-radius: 99px; margin-top: 12px; overflow: hidden; border: 1px solid #334155;
+    }
+    .progress-bar {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, var(--cyan), var(--green));
+      transition: width 0.4s ease;
+    }
+    .container { max-width: 950px; margin: 0 auto; display: grid; gap: 24px; }
+    .level {
+      background: var(--card); border: 2px solid #334155;
+      border-radius: 22px; padding: 22px; text-align: left;
+      transition: transform 0.2s, border-color 0.3s;
+    }
+    .level.completed { border-color: var(--green); box-shadow: 0 0 20px rgba(16,185,129,0.25); }
+    .level h2 { margin-top: 0; color: var(--cyan); font-size: 1.45rem; }
+    .story {
+      background: #090d16; padding: 14px; border-radius: 14px;
+      border-left: 5px solid var(--cyan); font-size: 1.05rem; line-height: 1.5; margin-bottom: 16px;
+    }
+    .arena {
+      background: #0b1120; border: 2px dashed #475569;
+      border-radius: 16px; padding: 18px; text-align: center;
+    }
+    .btn {
+      border: none; padding: 12px 20px; border-radius: 14px;
+      font-weight: bold; font-size: 1rem; cursor: pointer; margin: 6px;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .btn:hover { transform: scale(1.06); }
+    .btn:active { transform: scale(0.96); }
+    .btn-bad { background: #334155; color: #cbd5e1; border: 2px solid var(--red); }
+    .btn-good { background: linear-gradient(135deg, var(--cyan), var(--green)); color: #000; box-shadow: 0 0 15px rgba(0,240,255,0.4); }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), #fde047); color: #000; }
+    .visual-stage {
+      display: flex; justify-content: space-around; align-items: center;
+      flex-wrap: wrap; gap: 12px; margin: 16px 0;
+    }
+    .card-item {
+      background: #1e293b; border: 2px solid #475569; border-radius: 14px;
+      padding: 14px; width: 200px; min-height: 105px; transition: all 0.3s;
+    }
+    .card-item.glow { border-color: var(--green); background: #064e3b; transform: translateY(-4px); }
+    .feedback {
+      margin-top: 14px; font-size: 1.1rem; font-weight: bold;
+      min-height: 36px; padding: 10px; border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY TOP SCOREBOARD -->
+  <div class="hud">
+    <div class="hud-top">
+      <div style="font-size:1.3rem; font-weight:bold; color:var(--cyan);">🤖 Aura AI: Secret Robot Factory Quest!</div>
+      <div class="rank-pill" id="rankText">🎓 Rank: Rookie Builder</div>
+    </div>
+    <div class="stats">
+      <div class="stat-box">🪙 Client Money Saved/Made: $<span id="money">0</span></div>
+      <div class="stat-box">🛡️ Secrets Protected: <span id="secrets">0</span></div>
+      <div class="stat-box">⭐ Levels Beat: <span id="lvlCount">0</span> / 5</div>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="pBar"></div></div>
+  </div>
+
+  <div class="container">
+
+    <!-- LEVEL 1: GLASS CASTLE & LASER SCRUBBER -->
+    <div class="level" id="lvl1">
+      <h2>🛡️ Mission 1: The Locked Glass Castle & The Laser Scrubber</h2>
+      <div class="story">
+        <b>Why Normal AI Is Risky:</b> Normal AI is like shouting secrets into a <b>Public Loudspeaker</b>! Plus, websites are full of 80% invisible computer garbage.<br>
+        <b>How Aura AI Wins:</b> Master Builder Wes builds inside a <b>Locked Glass Castle (Air-Gapped)</b>. Before the robot brain reads anything, our <b>Regex Laser Scrubber</b> hides secret numbers and zaps 80% of the trash!
+      </div>
+      <div class="arena">
+        <div class="visual-stage">
+          <div class="card-item" id="l1c1">📄 <b>Messy Input</b><br><small style="color:#f87171;">"&lt;script&gt;junk&lt;/script&gt; Card: 4444-5555-6666"</small></div>
+          <div class="card-item" id="l1c2">🔫 <b>Regex Laser</b><br><small id="l1s2">Ready to fire...</small></div>
+          <div class="card-item" id="l1c3">🧠 <b>Fast Robot Brain</b><br><small id="l1s3">Waiting...</small></div>
+        </div>
+        <button class="btn btn-bad" onclick="playBuzzer(); setMsg('f1','😱 OOPS! Using a Public Loudspeaker leaked the secret card number! Try the Aura AI Laser instead!','#f43f5e')">📢 Use Normal Public AI Loudspeaker</button>
+        <button class="btn btn-good" onclick="beatLevel1()">⚡ Fire Aura AI Regex Laser Scrubber!</button>
+        <div class="feedback" id="f1">👆 Click a button to test the pipeline!</div>
+      </div>
+    </div>
+
+    <!-- LEVEL 2: CATCH THE $5,000 GOLDEN CALL -->
+    <div class="level" id="lvl2">
+      <h2>📞 Mission 2: Catch the $5,000 Golden Phone Call! (Making Money)</h2>
+      <div class="story">
+        <b>How Businesses Lose Money:</b> When an air conditioner breaks or a roof leaks, a family calls for help. If the worker is on a ladder and misses the call for 5 minutes, they lose a <b>$5,000 job!</b><br>
+        <b>How Aura AI Makes Them Money:</b> Our <b>Instant Missed-Call Text-Back Robot</b> replies in <b>30 seconds</b>, answers questions, and books the calendar! Plus, we build a <b>"Trojan Horse" Working Toy Demo</b> before the first meeting AND help AI Search Engines recommend them first (<b>GEO</b>)!
+      </div>
+      <div class="arena">
+        <div style="font-size:2.2rem; margin:8px;" id="phoneIcon">📳☎️💸</div>
+        <button class="btn btn-bad" onclick="playBuzzer(); setMsg('f2','🐢 Too slow! Climbing down the ladder took 6 minutes. The customer called another roofer and $5,000 flew away!','#f43f5e')">🪜 Climb Down Ladder Manually (6 Mins)</button>
+        <button class="btn btn-gold" onclick="beatLevel2()">🤖 Activate 30-Second Auto-Text Robot + GEO Spotlight!</button>
+        <div class="feedback" id="f2">👆 The $5,000 Golden Phone is ringing! What do you do?</div>
+      </div>
+    </div>
+
+    <!-- LEVEL 3: STOP THE LEAKY MONEY BUCKET -->
+    <div class="level" id="lvl3">
+      <h2>🪣 Mission 3: Stop the Leaky Money Bucket! (Saving 70%–80%)</h2>
+      <div class="story">
+        <b>How Businesses Waste Money:</b> Trucking companies, law firms, and plumbers pay people <b>$50,000 to $70,000</b> just to copy-paste boring paperwork all day! And they waste money using a giant expensive AI brain for easy chores.<br>
+        <b>How Aura AI Saves Money:</b> Our <b>Agentic Digital Workers (ADWs)</b> do 70%–80% of the boring paperwork automatically, and our <b>50% Brain Memory Cache (gpt-oss-120b)</b> cuts robot fuel costs in half!
+      </div>
+      <div class="arena">
+        <button class="btn btn-bad" onclick="playBuzzer(); setMsg('f3','💸 Oh no! Paying humans to copy-paste rate forms all day drained $60,000 from the piggy bank!','#f43f5e')">📝 Keep Copy-Pasting by Hand ($60k/yr)</button>
+        <button class="btn btn-good" onclick="beatLevel3()">🚀 Deploy Digital Workers (80% Saved) + 50% Brain Cache!</button>
+        <div class="feedback" id="f3">👆 Plug the leaky money bucket!</div>
+      </div>
+    </div>
+
+    <!-- LEVEL 4: THE 2 TURNKEY PATHS & THE 3 LANES -->
+    <div class="level" id="lvl4">
+      <h2>🏰 Mission 4: Pick the Right Castle Door! (Path A vs. Path B & The 3 Lanes)</h2>
+      <div class="story">
+        <b>Not Every Company Is the Same!</b> In <b>Lane 1 (Turnkey Castle: $15k–$45k, starting with a $7,500 Layer 1 Audit that counts 100% toward the build!)</b>, Aura AI now gives companies <b>Two Paths</b>:<br>
+        🔑 <b>Path A (Sovereign Hand-Off):</b> The company HAS their own computer team. Aura AI builds the robot in a safe sandbox, and their team turns the final key on screen-share!<br>
+        🛠️ <b>Path B (Fully Managed):</b> The company has NO tech team. Aura AI safely builds and runs the whole thing for them!<br>
+        <i>(Plus: <b>$2,500 Detective Audit</b>, <b>Lane 2 Ghost Partner 40–60% split</b>, and <b>Lane 3 $20k/yr Robot Recipe Book!</b>)</i>
+      </div>
+      <div class="arena">
+        <button class="btn btn-good" onclick="beatLevel4('A')">🔑 Test Path A (Client Tech Team Turns the Key)</button>
+        <button class="btn btn-gold" onclick="beatLevel4('B')">🛠️ Test Path B (Aura AI Manages Everything!)</button>
+        <button class="btn btn-good" onclick="beatLevel4('G')">👻 Test Lane 2 & 3 (Ghost Partner + Recipe Book)</button>
+        <div class="feedback" id="f4">👆 Click any path to see how Aura AI custom-fits every customer!</div>
+      </div>
+    </div>
+
+    <!-- LEVEL 5: LAYER 2 ROBOT DOCTOR & LAYER 3 COIN COUNTER -->
+    <div class="level" id="lvl5">
+      <h2>🩺 Mission 5: The Robot Doctor & The Magic Coin Counter! (Layers 2 & 3)</h2>
+      <div class="story">
+        <b>What Happens After the Robot Is Built?</b><br>
+        🛡️ <b>Layer 2 Infrastructure Retainer ($5,000–$10,000/Month):</b> When companies change their computers, robots can get confused (<b>Database Drift</b>). Aura AI acts as a <b>Robot Doctor</b>—tuning their memory AND doing <b>"Red Teaming"</b> (friendly karate sparring with the robots to catch bugs before a customer ever sees a mistake!).<br>
+        🪙 <b>Layer 3 Telemetric Gainshare (15%–25%):</b> An invisible <b>Coin Counter</b> inside the robot counts every single dollar saved (like $12.50 per task) so everyone shares the victory!
+      </div>
+      <div class="arena">
+        <button class="btn btn-bad" onclick="playBuzzer(); setMsg('f5','😵 Uh oh! The company updated their database without a Robot Doctor, and the robot got confused (Drift)!','#f43f5e')">😴 Skip the Robot Doctor Checkup</button>
+        <button class="btn btn-good" onclick="beatLevel5()">🛡️ Activate Drift Shield + Red-Team Sparring + Coin Counter!</button>
+        <div class="feedback" id="f5">👆 Protect the robots for the long run!</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Web Audio API Synthesizer (Zero external files needed!)
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    let ctx;
+    function initAudio() { if (!ctx) ctx = new AudioCtx(); }
+
+    function playTone(freq, type, duration, delay=0) {
+      initAudio();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, ctx.currentTime + delay);
+      gain.gain.setValueAtTime(0.18, ctx.currentTime + delay);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + duration);
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.start(ctx.currentTime + delay);
+      osc.stop(ctx.currentTime + delay + duration);
+    }
+
+    function playWin() {
+      playTone(523.25, 'triangle', 0.12, 0);
+      playTone(659.25, 'triangle', 0.12, 0.1);
+      playTone(783.99, 'triangle', 0.15, 0.2);
+      playTone(1046.50, 'sine', 0.35, 0.3);
+    }
+
+    function playBuzzer() {
+      playTone(160, 'sawtooth', 0.25, 0);
+      playTone(120, 'sawtooth', 0.3, 0.15);
+    }
+
+    let money = 0, secrets = 0, completed = {1:false, 2:false, 3:false, 4:false, 5:false};
+    const ranks = [
+      "🎓 Rank: Rookie Builder",
+      "🔫 Rank: Laser Defender",
+      "📞 Rank: Golden Call Catcher",
+      "🪣 Rank: Efficiency Hero",
+      "🏰 Rank: Castle Architect",
+      "👑 Rank: Master Sovereign Architect!"
+    ];
+
+    function setMsg(id, html, color) {
+      const el = document.getElementById(id);
+      el.innerHTML = html;
+      el.style.color = color;
+    }
+
+    function updateHUD() {
+      const count = Object.values(completed).filter(Boolean).length;
+      document.getElementById('money').innerText = money.toLocaleString();
+      document.getElementById('secrets').innerText = secrets;
+      document.getElementById('lvlCount').innerText = count;
+      document.getElementById('pBar').style.width = (count * 20) + '%';
+      document.getElementById('rankText').innerText = ranks[count];
+    }
+
+    function beatLevel1() {
+      playWin();
+      document.getElementById('l1c1').classList.add('glow');
+      document.getElementById('l1c2').classList.add('glow');
+      document.getElementById('l1c3').classList.add('glow');
+      document.getElementById('l1s2').innerHTML = "✅ 80% Trash Zapped!<br>[REDACTED_BY_SOVEREIGN_NODE]";
+      document.getElementById('l1s3').innerHTML = "⚡ Safe Dossier Built in 1 Sec!";
+      document.getElementById('lvl1').classList.add('completed');
+      setMsg('f1', '🎉 ZAP! You hid the secret credit card and shrunk the messy website by 80%!', '#10b981');
+      if (!completed[1]) { completed[1] = true; money += 7500; secrets += 100; updateHUD(); }
+    }
+
+    function beatLevel2() {
+      playWin();
+      document.getElementById('phoneIcon').innerText = "🤖💬✅💰";
+      document.getElementById('lvl2').classList.add('completed');
+      setMsg('f2', '🎉 BOOM! Aura AI texted the customer in 30 seconds, booked the job, and caught the $5,000 Golden Call!', '#fbbf24');
+      if (!completed[2]) { completed[2] = true; money += 5000; updateHUD(); }
+    }
+
+    function beatLevel3() {
+      playWin();
+      document.getElementById('lvl3').classList.add('completed');
+      setMsg('f3', '🎉 BUCKET FIXED! Digital Workers automated 80% of the paperwork and Brain Caching saved 50% on fuel (+$55,000/yr saved)!', '#10b981');
+      if (!completed[3]) { completed[3] = true; money += 55000; updateHUD(); }
+    }
+
+    function beatLevel4(choice) {
+      playWin();
+      document.getElementById('lvl4').classList.add('completed');
+      const map = {
+        'A': '🔑 <b>Path A (Sovereign Hand-Off):</b> We build in an isolated sandbox and their internal tech team flips the final switch on screen-share! Zero password risk!',
+        'B': '🛠️ <b>Path B (Fully Managed):</b> No tech team? No problem! Aura AI manages the entire setup safely from start to finish ($15k–$45k)!',
+        'G': '👻 <b>Lane 2 & 3:</b> We act as the invisible "Ghost Architect" for other agencies (40–60% split) or license our Robot Recipe Books ($20k+/yr)!'
+      };
+      setMsg('f4', map[choice], '#00f0ff');
+      if (!completed[4]) { completed[4] = true; money += 25000; secrets += 50; updateHUD(); }
+    }
+
+    function beatLevel5() {
+      playWin();
+      document.getElementById('lvl5').classList.add('completed');
+      setMsg('f5', '👑 VICTORY! Layer 2 Robot Doctors stopped Database Drift, Red-Teaming caught every bug, and the Layer 3 Coin Counter logged +$12.50 per task!', '#10b981');
+      if (!completed[5]) { completed[5] = true; money += 30000; secrets += 100; updateHUD(); }
+    }
+  </script>
+</body>
+</html>
