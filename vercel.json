@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/sandbox/:target",
-      "destination": "https://autonomous-outbound-sandbox--wes2307.replit.app/?prospect=:target",
+      "destination": "/sandbox.html?prospect=:target",
       "permanent": false
     }
   ]
