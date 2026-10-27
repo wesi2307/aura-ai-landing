@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/sandbox/sebastien",
+      "destination": "https://autonomous-outbound-sandbox--wes2307.replit.app",
+      "permanent": false
+    },
+    {
+      "source": "/sandbox/lauren",
+      "destination": "https://autonomous-outbound-sandbox--wes2307.replit.app",
+      "permanent": false
+    },
+    {
+      "source": "/sandbox/oscar",
+      "destination": "https://autonomous-outbound-sandbox--wes2307.replit.app",
+      "permanent": false
+    }
+  ]
+}
